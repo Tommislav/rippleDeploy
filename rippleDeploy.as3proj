@@ -6,9 +6,9 @@
     <movie input="" />
     <movie path="bin\rippleDeploy.swf" />
     <movie fps="30" />
-    <movie width="400" />
-    <movie height="300" />
-    <movie version="10" />
+    <movie width="800" />
+    <movie height="600" />
+    <movie version="11" />
     <movie background="#FFFFFF" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
@@ -30,7 +30,7 @@
     <option showDeprecationWarnings="True" />
     <option showUnusedTypeSelectorWarnings="True" />
     <option strict="True" />
-    <option useNetwork="True" />
+    <option useNetwork="False" />
     <option useResourceBundleMetadata="True" />
     <option warnings="True" />
     <option verboseStackTraces="False" />
@@ -82,6 +82,6 @@
   <options>
     <option showHiddenPaths="False" />
     <option testMovie="Custom" />
-    <option testMovieCommand="C:\flex\flex_sdk_4_1\bin\adl.exe;application.xml bin" />
+    <option testMovieCommand="C:\flex_sdk\sdk4.1\bin\adl.exe;application.xml bin" />
   </options>
 </project>
