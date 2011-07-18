@@ -3,6 +3,8 @@ package parser
 	import flash.filesystem.File;
 	import flash.filesystem.FileMode;
 	import flash.filesystem.FileStream;
+	import flash.utils.getTimer;
+	import parser.sheet.SheetData;
 	/**
 	 * ...
 	 * @author Tommislav
@@ -30,6 +32,10 @@ package parser
 				{
 					rf.type = Type.SHEET_XML;
 					rf.rawData = xml;
+					
+					var start:int = getTimer();
+					rf.parsedData = SheetData.fromXml( xml );
+					trace("Parse sheet xml " + rf.fileName + " ("+ (getTimer() - start) +" ms)");
 				}
 				else if (xml.layer.length() > 0 && xml.layer[0].tile.length() > 0)
 				{

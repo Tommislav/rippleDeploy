@@ -9,9 +9,12 @@ package parser.sheet
 		public var id:String;
 		public var src:String;
 		
-		public function Sound() 
+		public static function fromXml(xml:XML):Sound
 		{
-			
+			var s:Sound = new Sound();
+			s.id = xml.@id;
+			s.src = xml.@src;
+			return s;
 		}
 		
 	}

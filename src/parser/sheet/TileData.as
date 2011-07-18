@@ -12,9 +12,15 @@ package parser.sheet
 		public var y:int;
 		public var prop:Array;
 		
-		public function TileData() 
+		public static function fromXml(xml:XML):TileData
 		{
-			
+			var td:TileData = new TileData();
+			td.id = xml.@id;
+			td.sheetId = xml.@sheet;
+			td.x = parseInt( xml.@x );
+			td.y = parseInt( xml.@y );
+			td.prop = String(xml.@prop).split(",");
+			return td;
 		}
 		
 	}

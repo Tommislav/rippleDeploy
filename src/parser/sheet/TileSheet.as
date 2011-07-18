@@ -15,9 +15,16 @@ package parser.sheet
 		public var height:Number;
 		public var src:String;
 		
-		public function TileSheet() 
+		
+		public static function fromXml(xml:XML):TileSheet
 		{
-			
+			var sheet:TileSheet = new TileSheet();
+			sheet.id = xml.@id;
+			sheet.type = (xml.@type == "tile") ? TYPE_TILE : TYPE_SPRITE;
+			sheet.width = Number(xml.@w);
+			sheet.height = Number(xml.@h);
+			sheet.src = xml.@src;
+			return sheet;
 		}
 		
 	}
