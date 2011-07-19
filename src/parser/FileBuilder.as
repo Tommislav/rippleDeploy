@@ -4,6 +4,7 @@ package parser
 	import flash.filesystem.FileMode;
 	import flash.filesystem.FileStream;
 	import flash.utils.getTimer;
+	import parser.level.LevelData;
 	import parser.sheet.SheetData;
 	/**
 	 * ...
@@ -41,6 +42,9 @@ package parser
 				{
 					rf.type = Type.LEVEL_XML;
 					rf.rawData = xml;
+					var lstart:int = getTimer();
+					rf.parsedData = LevelData.fromXml( xml );
+					trace("Parse level xml " + rf.fileName + " ("+ (getTimer() - lstart) +" ms)");
 				}
 			}
 			

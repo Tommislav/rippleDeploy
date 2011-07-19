@@ -24,7 +24,7 @@ package parser
 				else if (rf.type == Type.LEVEL_XML)
 					_model.levelXml.push( rf );
 					
-				return "File: " + file.name + "; type: " + rf.type;
+				return "File: " + file.name + "; type: " + rf.type + "\n" + rf.parsedData + "\n-----------------------------------";
 			}
 			return "Unkown file";
 		}

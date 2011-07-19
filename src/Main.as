@@ -60,6 +60,8 @@ package
 			_info.width = 400;
 			
 			_tf = new TextField();
+			_tf.selectable = false;
+			_tf.mouseEnabled = false;
 			_tf.defaultTextFormat = new TextFormat("_typewriter");
 			_tf.autoSize = "left";
 			_tf.x = 5;
