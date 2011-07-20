@@ -56,6 +56,27 @@ package parser.sheet
 		{
 			return "Sheet XML, tileSheets("+tileSheets.length+"), tileData("+tileData.length+"), sprites("+sprites.length+"), sounds("+sound.length+")";
 		}
+		
+		public function clone():SheetData
+		{
+			var sd:SheetData = new SheetData();
+			sd.projectDir = this.projectDir;
+			var i:int;
+			
+			for (i = 0; i < tileSheets.length; i++ )
+				sd.tileSheets.push(this.tileSheets[i].clone());
+			
+			for (i = 0; i < tileData.length; i++ )
+				sd.tileData.push(this.tileData[i].clone());
+			
+			for (i = 0; i < sprites.length; i++ )
+				sd.sprites.push(this.sprites[i].clone());
+			
+			for (i = 0; i < sound.length; i++ )
+				sd.sound.push(this.sound[i].clone());
+			
+			return sd;
+		}
 	}
 
 }

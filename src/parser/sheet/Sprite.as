@@ -38,6 +38,23 @@ package parser.sheet
 			var dim:Array = s.split(",");
 			return new Rectangle( Number(dim[0]), Number(dim[1]), Number(dim[2]), Number(dim[3]) );
 		}
+		
+		public function clone():Sprite
+		{
+			var s:Sprite = new Sprite();
+			s.id = this.id;
+			s.name = this.name;
+			s.type = this.type;
+			s.bb = this.bb.clone();
+			s.p = this.p.slice();
+			
+			for (var i:int = 0; i < spriteStates.length; i++ )
+			{
+				s.spriteStates.push(spriteStates[i].clone());
+			}
+			
+			return s;
+		}
 	}
 
 }

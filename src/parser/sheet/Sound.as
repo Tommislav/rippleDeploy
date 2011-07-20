@@ -17,6 +17,13 @@ package parser.sheet
 			return s;
 		}
 		
+		public function clone():Sound
+		{
+			var s:Sound = new Sound();
+			s.id = this.id;
+			s.src = this.src;
+			return s;
+		}
 	}
 
 }

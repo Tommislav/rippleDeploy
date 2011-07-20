@@ -25,6 +25,11 @@ package parser.level
 			
 			return t;
 		}
+		
+		public function valueOf():Object
+		{
+			return this.id;
+		}
 	}
 
 }

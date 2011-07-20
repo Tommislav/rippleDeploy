@@ -34,6 +34,16 @@ package parser.sheet
 			return [];
 		}
 		
+		public function clone():SpriteState
+		{
+			var s:SpriteState = new SpriteState();
+			s.id = this.id;
+			s.name = this.name;
+			s.type = this.type;
+			s.p = this.p.slice();
+			s.frames = this.frames.slice();
+			return s;
+		}
 	}
 
 }

@@ -27,6 +27,16 @@ package parser.sheet
 			return sheet;
 		}
 		
+		public function clone():TileSheet
+		{
+			var s:TileSheet = new TileSheet();
+			s.id = this.id;
+			s.type = this.type;
+			s.width = this.width;
+			s.height = this.height;
+			s.src = this.src;
+			return s;
+		}
 	}
 
 }

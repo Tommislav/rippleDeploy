@@ -1,6 +1,8 @@
 package parser 
 {
 	import flash.filesystem.File;
+	import parser.level.LevelData;
+	import parser.sheet.SheetData;
 	/**
 	 * ...
 	 * @author Tommislav
@@ -60,7 +62,14 @@ package parser
 		
 		public function optimize():String
 		{
-			return "";
+			var sheet:SheetData = SheetData(_model.sheetXml.parsedData);
+			var levels:Vector.<LevelData> = new Vector.<LevelData>();
+			for each(var lvl:RippleFile in _model.levelXml)
+				levels.push(lvl.parsedData);
+			
+			var optSheet:SheetData = SheetOptimizer.optimizeSheet(sheet, levels);
+			
+			return "Old: " + sheet.tileSheets.length + "/" + sheet.tileData.length + "/" + sheet.sprites.length + ";  new: " + optSheet.tileSheets.length + "/" + optSheet.tileData.length + "/" + optSheet.sprites.length;
 		}
 		
 		public function save():void
