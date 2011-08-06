@@ -73,7 +73,8 @@ package parser
 		public function optimizeSheet():void
 		{
 			var optimizedTileDatas:Vector.<TileData> = new Vector.<TileData>();
-			var optimizedSpriteDatas:Vector.<Sprite> = new Vector.<Sprite>()
+			var optimizedSpriteDatas:Vector.<Sprite> = new Vector.<Sprite>();
+			var tempFrameIds:Vector.<String> = new Vector.<String>();
 			for each( var id:String in _allTileIds )
 			{
 				var obj:Object = getTileDataOrSpriteDataFromId(id);
@@ -82,10 +83,20 @@ package parser
 					optimizedTileDatas.push(TileData(obj));
 				
 				if (obj is Sprite)
+				{
+					for each(var frameId:String in Sprite(obj).allFrames)
+					{
+						if (tempFrameIds.indexOf(frameId) == -1)
+						{
+							tempFrameIds.push(frameId);
+							optimizedTileDatas.push(getTileDataOrSpriteDataFromId(frameId));
+						}
+					}
 					optimizedSpriteDatas.push(Sprite(obj));
+				}
 				
 			}
-			
+			trace("number of parsed frames: " + tempFrameIds.length);
 			_sheet.tileData = optimizedTileDatas;
 			_sheet.sprites = optimizedSpriteDatas;
 		}

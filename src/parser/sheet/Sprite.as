@@ -14,6 +14,7 @@ package parser.sheet
 		public var p:Array;
 		
 		public var spriteStates:Vector.<SpriteState> = new Vector.<SpriteState>();
+		public var allFrames:Vector.<String> = new Vector.<String>();
 		
 		public static function fromXml(xml:XML):Sprite
 		{
@@ -27,7 +28,16 @@ package parser.sheet
 			var spriteStates:XMLList = xml.sprite;
 			for each( var state:XML in spriteStates )
 			{
-				s.spriteStates.push( SpriteState.fromXml(state) );
+				var ss:SpriteState = SpriteState.fromXml(state);
+				var frames:Vector.<String> = ( getUniqueFrames( ss ) );
+				
+				for each(var f:String in frames)
+				{
+					if (s.allFrames.indexOf(f) == -1)
+						s.allFrames.push(f);
+				}
+				
+				s.spriteStates.push( ss );
 			}
 			
 			return s;
@@ -37,6 +47,17 @@ package parser.sheet
 		{
 			var dim:Array = s.split(",");
 			return new Rectangle( Number(dim[0]), Number(dim[1]), Number(dim[2]), Number(dim[3]) );
+		}
+		
+		private static function getUniqueFrames(ss:SpriteState):Vector.<String>
+		{
+			var v:Vector.<String> = new Vector.<String>();
+			for each(var id:String in ss.frames)
+			{
+				if (v.indexOf(id) == -1)
+					v.push(id);
+			}
+			return v;
 		}
 		
 		public function clone():Sprite
