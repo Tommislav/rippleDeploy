@@ -1,0 +1,14 @@
+<level>
+	<levelInfo>name=Name|bonusFee=50%|bonusFeeText=BFT|bgLoop=bg01|introText=some##intro##text!</levelInfo>
+	<startPos x="123" y="456" />
+	<layer id="objects" x="1" y="1" d="2" obj="true" >
+		<tile p="18,372,114" e="str=50"/>
+		<tile p="18,10,20"/>
+	</layer>
+	
+	<layer id="main" x="1" y="1" d="1" obj="false" >
+		<tile p="1,7,9" />
+		<tile p="2,64,0" />
+		<tile p="3,128,64" />
+	</layer>
+</level>

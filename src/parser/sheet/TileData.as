@@ -27,6 +27,7 @@ package parser.sheet
 		{
 			var td:TileData = new TileData();
 			td.id = this.id;
+			td.sheetId = this.sheetId;
 			td.x = this.x;
 			td.y = this.y;
 			td.prop = this.prop.slice();

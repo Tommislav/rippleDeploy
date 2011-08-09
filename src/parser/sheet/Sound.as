@@ -4,7 +4,7 @@ package parser.sheet
 	 * ...
 	 * @author Tommislav
 	 */
-	public class Sound 
+	public class Sound extends Object
 	{
 		public var id:String;
 		public var src:String;
@@ -23,6 +23,11 @@ package parser.sheet
 			s.id = this.id;
 			s.src = this.src;
 			return s;
+		}
+		
+		public function toString():String
+		{
+			return "Sound: id=" + this.id + "; src=" + this.src;
 		}
 	}
 

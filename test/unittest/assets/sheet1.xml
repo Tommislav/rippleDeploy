@@ -1,0 +1,91 @@
+<salEd_project>
+	<project dir="file:///path/to/project" />
+	
+	<tileSheets id="1" type="tile" w="64" h="64" src="tilesheet1.png" />
+	<tileSheets id="2" type="tile" w="64" h="64" src="tilesheet2.png" />
+	<tileSheets id="3" type="sprite" w="64" h="64" src="spritesheet1.png" />
+	<tileSheets id="4" type="sprite" w="128" h="32" src="spritesheet2.png" />
+	
+	<!-- tileSheet 1, just one strip with 7 tiles -->
+	<tileData id="1" sheet="1" x="0" y="0" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="2" sheet="1" x="1" y="0" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="3" sheet="1" x="2" y="0" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="4" sheet="1" x="3" y="0" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="5" sheet="1" x="4" y="0" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="6" sheet="1" x="5" y="0" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="7" sheet="1" x="6" y="0" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	
+	<!-- tileSheet 2 -->
+	<tileData id="8" sheet="2" x="0" y="0" prop="0,0,0,0,353,289,0,0,1,1,417,353,1,1,1,1" />
+	<tileData id="9" sheet="2" x="1" y="0" prop="0,0,0,0,0,0,0,0,289,0,0,0,1,417,353,289" />
+	<tileData id="10" sheet="2" x="2" y="0" prop="225,161,0,0,1,1,225,161,1,1,1,1,1,1,1,1" />
+	<tileData id="11" sheet="2" x="3" y="0" prop="0,0,0,0,0,0,0,0,225,161,0,0,1,1,225,161" />
+	<tileData id="12" sheet="2" x="4" y="0" prop="97,0,0,0,1,97,0,0,1,1,97,0,1,1,1,97" />
+	<tileData id="13" sheet="2" x="0" y="1" prop="673,609,545,481,1,1,1,1,1,1,1,1,1,1,1,1" />
+	<tileData id="14" sheet="2" x="1" y="1" prop="0,0,0,0,673,609,545,481,1,1,1,1,1,1,1,1" />
+	<tileData id="15" sheet="2" x="2" y="1" prop="0,0,0,0,0,0,0,0,673,609,545,481,1,1,1,1" />
+	<tileData id="16" sheet="2" x="3" y="1" prop="0,0,0,0,0,0,0,0,0,0,0,0,673,609,545,289" />
+	<tileData id="17" sheet="2" x="4" y="1" prop="417,353,289,0,1,1,1,417,1,1,1,1,1,1,1,1" />
+	
+	<!-- tiledata for spritesheet with id 3, which belongs to a bouncer -->
+	<tileData id="18" sheet="3" x="0" y="0" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="19" sheet="3" x="1" y="0" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="20" sheet="3" x="2" y="0" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="21" sheet="3" x="3" y="0" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="22" sheet="3" x="4" y="0" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="23" sheet="3" x="5" y="0" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="24" sheet="3" x="6" y="0" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="25" sheet="3" x="0" y="1" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="26" sheet="3" x="1" y="1" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="27" sheet="3" x="2" y="1" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="28" sheet="3" x="3" y="1" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="29" sheet="3" x="4" y="1" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="30" sheet="3" x="5" y="1" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="31" sheet="3" x="6" y="1" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="32" sheet="3" x="0" y="2" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="33" sheet="3" x="1" y="2" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="34" sheet="3" x="2" y="2" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="35" sheet="3" x="3" y="2" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="36" sheet="3" x="4" y="2" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="37" sheet="3" x="5" y="2" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="38" sheet="3" x="6" y="2" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	
+	<!-- tiledata for second spritesheet, which isn't used anywhere -->
+	<tileData id="39" sheet="4" x="0" y="0" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="40" sheet="4" x="1" y="0" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="41" sheet="4" x="0" y="1" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="42" sheet="4" x="1" y="1" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="43" sheet="4" x="0" y="2" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="44" sheet="4" x="1" y="2" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="45" sheet="4" x="0" y="3" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+	<tileData id="46" sheet="4" x="1" y="3" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
+
+
+	<!-- sprite for spritesheet 1, a bouncer --->
+	<sprite id="18" name="bounce01" type="sprite" bb="16,16,32,32" p="str=20|dir=0|inact=100|sfxcoll=bounce,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+		<sprite id="19" name="act" type="spriteState"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+			<frames p="18,18,19,19,20,20,21,21" />
+		</sprite>
+		<sprite id="20" name="coll" type="spriteState"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+			<frames p="21,22,23,24,24,23,22,21" />
+		</sprite>
+		<sprite id="21" name="inact" type="spriteState"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+			<frames p="25" />
+		</sprite>
+		<sprite id="22" name="toact" type="spriteState"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+			<frames p="26,27,28,29,30" />
+		</sprite>
+	</sprite>
+	
+	<!-- antoher simple sprite that isn't anywhere in the level -->
+	<sprite id="23" name="notInLevel" type="sprite" bb="0,0,32,32" p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+		<sprite id="24" name="state" type="spriteState"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+			<frames p="40" />
+		</sprite>
+	</sprite>
+	
+	<!-- and a few sounds at the bottom -->
+	<sound id="bg01" src="snd_01.mp3" />
+	<sound id="bg02" src="snd_02.mp3" />
+	<sound id="bg03" src="snd_03.mp3" />
+</salEd_project>
