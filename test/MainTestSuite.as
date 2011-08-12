@@ -2,6 +2,7 @@
 {
 	import unittest.parser.level.TestLevelData;
 	import unittest.parser.sheet.TestSheetData;
+	import unittest.parser.TestSheetOptimizer;
 	import unittest.parser.util.TestUniqueifyList;
 	
 	/**
@@ -17,6 +18,7 @@
 		public var UniqueifyList:TestUniqueifyList;
 		public var testSheetData:TestSheetData;
 		public var testLevelData:TestLevelData;
+		public var testSheetOpt:TestSheetOptimizer;
 		
 		/* Examples!
 		

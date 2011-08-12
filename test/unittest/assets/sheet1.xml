@@ -62,17 +62,17 @@
 
 
 	<!-- sprite for spritesheet 1, a bouncer --->
-	<sprite id="18" name="bounce01" type="sprite" bb="16,16,32,32" p="str=20|dir=0|inact=100|sfxcoll=bounce,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
-		<sprite id="19" name="act" type="spriteState"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+	<sprite id="50" name="bounce01" type="sprite" bb="16,16,32,32" p="str=20|dir=0|inact=100|sfxcoll=bounce,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+		<sprite id="51" name="act" type="spriteState"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
 			<frames p="18,18,19,19,20,20,21,21" />
 		</sprite>
-		<sprite id="20" name="coll" type="spriteState"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+		<sprite id="52" name="coll" type="spriteState"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
 			<frames p="21,22,23,24,24,23,22,21" />
 		</sprite>
-		<sprite id="21" name="inact" type="spriteState"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+		<sprite id="53" name="inact" type="spriteState"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
 			<frames p="25" />
 		</sprite>
-		<sprite id="22" name="toact" type="spriteState"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+		<sprite id="54" name="toact" type="spriteState"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
 			<frames p="26,27,28,29,30" />
 		</sprite>
 	</sprite>

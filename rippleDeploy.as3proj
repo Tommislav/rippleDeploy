@@ -6,7 +6,7 @@
     <movie input="" />
     <movie path="bin\rippleDeploy.swf" />
     <movie fps="30" />
-    <movie width="600" />
+    <movie width="450" />
     <movie height="450" />
     <movie version="11" />
     <movie background="#FFFFFF" />

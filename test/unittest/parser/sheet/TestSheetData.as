@@ -141,28 +141,28 @@ package unittest.parser.sheet
 		private function validateSpriteWithDefaultValues(sp:Sprite):void
 		{
 			var spriteData:Object = {
-				id: "18", name: "bounce01", type: SpriteTypes.TYPE_SPRITE,
+				id: "50", name: "bounce01", type: SpriteTypes.TYPE_SPRITE,
 				bb: new Rectangle(16, 16, 32, 32), 
 				p: ["str=20|dir=0|inact=100|sfxcoll=bounce","4", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ,"0", "0"],
 				allFrames: new <String>["18","19","20","21","22","23","24","25","26","27","28","29","30"]
 			};
 			var state1:Object = {
-				id: "19", name: "act", type: SpriteTypes.TYPE_SPRITE_STATE,
+				id: "51", name: "act", type: SpriteTypes.TYPE_SPRITE_STATE,
 				p: ZERO_PROP_ARRAY,
 				frames: [18,18,19,19,20,20,21,21]
 			};
 			var state2:Object = {
-				id: "20", name: "coll", type: SpriteTypes.TYPE_SPRITE_STATE,
+				id: "52", name: "coll", type: SpriteTypes.TYPE_SPRITE_STATE,
 				p: ZERO_PROP_ARRAY,
 				frames: [21,22,23,24,24,23,22,21]
 			};
 			var state3:Object = {
-				id: "21", name: "inact", type: SpriteTypes.TYPE_SPRITE_STATE,
+				id: "53", name: "inact", type: SpriteTypes.TYPE_SPRITE_STATE,
 				p: ZERO_PROP_ARRAY,
 				frames: [25]
 			};
 			var state4:Object = {
-				id: "22", name: "toact", type:SpriteTypes.TYPE_SPRITE_STATE,
+				id: "54", name: "toact", type:SpriteTypes.TYPE_SPRITE_STATE,
 				p: ZERO_PROP_ARRAY,
 				frames: [26,27,28,29,30]
 			}

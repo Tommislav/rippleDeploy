@@ -1,6 +1,7 @@
 package parser 
 {
 	import flash.filesystem.File;
+	import flash.utils.getTimer;
 	import parser.level.LevelData;
 	import parser.sheet.SheetData;
 	/**
@@ -67,9 +68,29 @@ package parser
 			for each(var lvl:RippleFile in _model.levelXml)
 				levels.push(lvl.parsedData);
 			
+			var start:uint = getTimer();
 			var optSheet:SheetData = SheetOptimizer.optimizeSheet(sheet, levels);
+			var time:uint = getTimer() - start;
 			
-			return "Old: " + sheet.tileSheets.length + "/" + sheet.tileData.length + "/" + sheet.sprites.length + ";  new: " + optSheet.tileSheets.length + "/" + optSheet.tileData.length + "/" + optSheet.sprites.length;
+			
+			// Write report
+			
+			var info:String = "";
+			info += "Optimization took " + time + " ms\n";
+			info +="Sheets|tiles|sprites\n";
+			info += "Compressed:";
+			info += optPer(sheet.tileSheets.length, optSheet.tileSheets.length) + "|";
+			info += optPer(sheet.tileData.length, optSheet.tileData.length) + "|";
+			info += optPer(sheet.sprites.length, optSheet.sprites.length) + "\n";
+			
+			info += "Old: " + sheet.tileSheets.length + "|" + sheet.tileData.length + "|" + sheet.sprites.length + "\n";
+			info += "New: " + optSheet.tileSheets.length + "|" + optSheet.tileData.length + "|" + optSheet.sprites.length;
+			return info;
+		}
+		
+		private function optPer(oldVal:Number, newVal:Number):String
+		{
+			return Math.round(newVal / oldVal * 1000) / 10 + "%";
 		}
 		
 		public function save():void

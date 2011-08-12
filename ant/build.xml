@@ -41,6 +41,7 @@
 			
 			<mxmlc file="${PROJECT_ROOT}/test/Unittest.mxml" use-network="false" debug="@{debug}" keep-generated-actionscript="false" output="${PROJECT_ROOT}/bin/@{output}" incremental="true" benchmark="false" verbose-stacktraces="@{debug}" static-link-runtime-shared-libraries="true" >
 				<target-player>10.0</target-player>
+				<default-size width="1000" height="550" />
 				
 				<source-path path-element="${PROJECT_ROOT}/test"/>
 				<source-path path-element="${PROJECT_ROOT}/src"/>

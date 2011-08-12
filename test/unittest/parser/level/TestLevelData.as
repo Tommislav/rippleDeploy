@@ -73,10 +73,10 @@ package unittest.parser.level
 			var obj2:Tile = _levelData.layers[0].tiles[1];
 			
 			var data1:Object = {
-				id: 18, x: 372, y: 114, extra: "str=50"
+				id: 50, x: 372, y: 114, extra: "str=50"
 			}
 			var data2:Object = {
-				id: 18, x: 10, y: 20, extra: ""
+				id: 50, x: 10, y: 20, extra: ""
 			}
 			validateObject( obj1, data1 );
 			validateObject( obj2, data2 );

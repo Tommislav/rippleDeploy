@@ -8,6 +8,7 @@ package parser
 	import parser.sheet.Sprite;
 	import parser.sheet.TileData;
 	import parser.sheet.TileSheet;
+	import parser.util.UniqueifyList;
 	/**
 	 * ...
 	 * @author Tommislav
@@ -34,13 +35,13 @@ package parser
 		
 		
 		private var _usedTileSheets:Vector.<String>;
-		private var _allTileIds:Vector.<String>;
+		private var _allLayerObjects:Vector.<String>;
 		private var _sheet:SheetData;
 		
 		public function SheetOptimizer(sheet:SheetData)
 		{
 			_usedTileSheets = new Vector.<String>();
-			_allTileIds = new Vector.<String>();
+			_allLayerObjects = new Vector.<String>();
 			_sheet = sheet;
 		}
 		
@@ -50,20 +51,12 @@ package parser
 		 */
 		public function prepareDataFromLevel(lv:LevelData):void
 		{
-			var i:int;
-			var len:int;
+			var td:Vector.<String> = new Vector.<String>();
 			for each(var layer:Layer in lv.layers)
 			{
-				var layerTileIds:Vector.<String> = layer.allTileIds;
-				
-				len = layerTileIds.length;
-				for (i = 0; i < len; i++ )
-				{
-					if ( _allTileIds.indexOf(layerTileIds[i]) == -1 )
-						_allTileIds.push(layer.allTileIds[i]);
-				}
+				UniqueifyList.getUnique(_allLayerObjects, layer.allTileIds);
 			}
-			trace("--- number of unique tiles: " + _allTileIds.length + " (of "+ _sheet.tileData.length +")");
+			trace("--- number of unique layer objects: " + _allLayerObjects.length + " (of "+ _sheet.tileData.length +")");
 		}
 		
 		/**
@@ -72,33 +65,54 @@ package parser
 		 */
 		public function optimizeSheet():void
 		{
-			var optimizedTileDatas:Vector.<TileData> = new Vector.<TileData>();
-			var optimizedSpriteDatas:Vector.<Sprite> = new Vector.<Sprite>();
-			var tempFrameIds:Vector.<String> = new Vector.<String>();
-			for each( var id:String in _allTileIds )
+			var allTileDatas:Vector.<TileData> = new Vector.<TileData>();
+			var allSpriteDatas:Vector.<Sprite> = new Vector.<Sprite>();
+			var allSpriteFrames:Vector.<String> = new Vector.<String>();
+			for each( var id:String in _allLayerObjects )
 			{
 				var obj:Object = getTileDataOrSpriteDataFromId(id);
 				
 				if (obj is TileData)
-					optimizedTileDatas.push(TileData(obj));
+					allTileDatas.push(TileData(obj));
 				
 				if (obj is Sprite)
 				{
-					for each(var frameId:String in Sprite(obj).allFrames)
-					{
-						if (tempFrameIds.indexOf(frameId) == -1)
-						{
-							tempFrameIds.push(frameId);
-							optimizedTileDatas.push(getTileDataOrSpriteDataFromId(frameId));
-						}
-					}
-					optimizedSpriteDatas.push(Sprite(obj));
+					allSpriteDatas.push(Sprite(obj));
+					UniqueifyList.getUnique(allSpriteFrames, Sprite(obj).allFrames);
 				}
-				
 			}
-			trace("number of parsed frames: " + tempFrameIds.length);
-			_sheet.tileData = optimizedTileDatas;
-			_sheet.sprites = optimizedSpriteDatas;
+			
+			// Get all tileDatas for the sprite frames!
+			for each( var frame:String in allSpriteFrames )
+			{
+				allTileDatas.push(getTileDataOrSpriteDataFromId(frame));
+			}
+			
+			trace("number of parsed frames: " + allSpriteFrames.length);
+			
+			// optimize tilesheets, remove the ones not used
+			var allTileSheetIds:Vector.<String> = new Vector.<String>();
+			for each(var td:TileData in allTileDatas)
+			{
+				UniqueifyList.getUnique(allTileSheetIds, [td.sheetId]);
+			}
+			
+			var allTileSheets:Vector.<TileSheet> = new Vector.<TileSheet>();
+			for each(var sheetId:String in allTileSheetIds)
+			{
+				for each(var orgSheet:TileSheet in _sheet.tileSheets)
+				{
+					if (orgSheet.id == sheetId)
+					{
+						allTileSheets.push(orgSheet);
+						break;
+					}
+				}
+			}
+			
+			_sheet.tileSheets = allTileSheets;
+			_sheet.tileData = allTileDatas;
+			_sheet.sprites = allSpriteDatas;
 		}
 		
 		private function getTileDataOrSpriteDataFromId(id:String):Object
