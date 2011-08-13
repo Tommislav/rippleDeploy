@@ -1,0 +1,31 @@
+package
+{
+	// imports goes here
+	
+	public class [ClassName]
+	{
+		[EmbedFiles]
+		
+		private var _sheet:Object = {};
+		private var _levels:Array = [];
+		
+		public function [ClassName]()
+		{
+			init();
+		}
+		
+		private function init():void
+		{
+			[init];
+		}
+		
+		public function get sheet():Object { return _sheet; }
+		public function getLevel(levelName:String):Object
+		{
+			if (_levels[id] != null)
+				return _levels[id];
+			
+			throw new Error("No level with id " + id + " in levelpack [ClassName]");
+		}
+	}
+}
