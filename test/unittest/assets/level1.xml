@@ -9,6 +9,6 @@
 	<layer id="main" x="1" y="1" d="1" obj="false" >
 		<tile p="1,7,9" />
 		<tile p="2,64,0" />
-		<tile p="3,128,64" />
+		<tile p="26,128,64" /> <!-- animated tile -->
 	</layer>
 </level>

@@ -59,7 +59,7 @@
 	<tileData id="44" sheet="4" x="1" y="2" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
 	<tileData id="45" sheet="4" x="0" y="3" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
 	<tileData id="46" sheet="4" x="1" y="3" prop="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
-
+	
 
 	<!-- sprite for spritesheet 1, a bouncer --->
 	<sprite id="50" name="bounce01" type="sprite" bb="16,16,32,32" p="str=20|dir=0|inact=100|sfxcoll=bounce,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
@@ -81,6 +81,13 @@
 	<sprite id="23" name="notInLevel" type="sprite" bb="0,0,32,32" p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
 		<sprite id="24" name="state" type="spriteState"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
 			<frames p="40" />
+		</sprite>
+	</sprite>
+	
+	<!-- SPECIAL TEST FOR ANIMATED TILES -->
+	<sprite id="25" name="tiles" type="sprite"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+		<sprite id="26" name="flashtower" type="animatedTile"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+			<frames p="1,2,3" />
 		</sprite>
 	</sprite>
 	

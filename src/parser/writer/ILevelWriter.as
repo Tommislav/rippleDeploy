@@ -8,7 +8,7 @@ package parser.writer
 	 */
 	public interface ILevelWriter 
 	{
-		function write(template:String, data:LevelData):String;
+		function write(template:String, data:LevelData, levelName:String):String;
 	}
 	
 }

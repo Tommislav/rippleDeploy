@@ -6,6 +6,7 @@
 	import unittest.parser.util.TestUniqueifyList;
 	import unittest.parser.writer.TestEmbedMp3Writer;
 	import unittest.parser.writer.TestEmbedTileSheetWriter;
+	import unittest.parser.writer.TestLevelWriter;
 	import unittest.parser.writer.TestSheetWriter;
 	import unittest.parser.writer.TestSoundWriter;
 	import unittest.parser.writer.TestSpriteDataWriter;
@@ -33,6 +34,8 @@
 		public var embedSoundWriter:TestEmbedMp3Writer;
 		public var sndWriter:TestSoundWriter;
 		public var spriteWriter:TestSpriteDataWriter;
+		
+		public var levelWriter:TestLevelWriter;
 		
 		/* Examples!
 		

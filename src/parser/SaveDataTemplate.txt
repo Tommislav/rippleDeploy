@@ -7,7 +7,7 @@ package
 		[EmbedFiles]
 		
 		private var _sheet:Object = {};
-		private var _levels:Array = [];
+		private var _levels:Object = {};
 		
 		public function [ClassName]()
 		{

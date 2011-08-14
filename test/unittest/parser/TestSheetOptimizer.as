@@ -77,7 +77,7 @@ package unittest.parser
 			for each(var td:TileData in _optSheet.tileData)
 				optTD.push(td.id);
 			
-			assertThat("regular frames", optTD, hasItems("1", "2", "3"));
+			assertThat("regular frames", optTD, hasItems("1", "2", "26"));
 			assertThat("bouncer frames", optTD, hasItems("18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"));
 			
 			// And that should be all!

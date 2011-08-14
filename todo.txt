@@ -1,0 +1,8 @@
+Sheetwriter:
+O build full sheetwriter
+O save sheet as .as-file same name as sheet.xml name
+O compile to .swf with same name as sheet.xml
+
+LevelWriter
+X build levelwriter
+O save level with same name as level.xml name
