@@ -1,19 +1,9 @@
 <project name="rippleDeploy unittest" basedir="." default="unittest">
 	
 	<property file="build.properties" />
-	
-	
-	<taskdef resource="flexTasks.tasks" >
-		<classpath>
-			<pathelement path="${FLEX_HOME}/ant/lib/flexTasks.jar"/> 
-			<fileset dir="${FLEX_HOME}/ant/lib/"> 
-				<include name="**/*.jar"/>
-			</fileset> 
-		</classpath>
-	</taskdef>
-	<!--
 	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
-	-->
+	
+	
 	
 	<property name="PROJECT_ROOT" value="${project.dir}"/>
 	
@@ -39,8 +29,8 @@
 			<echo>######################################</echo>
 			<echo>###</echo>
 			
-			<mxmlc file="${PROJECT_ROOT}/test/Unittest.mxml" use-network="false" debug="@{debug}" keep-generated-actionscript="false" output="${PROJECT_ROOT}/bin/@{output}" incremental="true" benchmark="false" verbose-stacktraces="@{debug}" static-link-runtime-shared-libraries="true" >
-				<target-player>10.0</target-player>
+			<mxmlc file="${PROJECT_ROOT}/test/Unittest.as" use-network="false" debug="@{debug}" keep-generated-actionscript="false" output="${PROJECT_ROOT}/bin/@{output}" incremental="true" benchmark="false" verbose-stacktraces="@{debug}" static-link-runtime-shared-libraries="true" >
+				<target-player>10.1</target-player>
 				<default-size width="1000" height="550" />
 				
 				<source-path path-element="${PROJECT_ROOT}/test"/>
@@ -57,6 +47,7 @@
 				<compiler.library-path dir="${PROJECT_ROOT}/lib/test" append="true">
 					<include name="FlexUnit4UIRunner.swc" />
 					<include name="flexunit-core-flex-4.1.0.swc" />
+					<include name="LURunner-0.2.swc" />
 					<include name="Hamcrest.swc" />
 				</compiler.library-path>
 				

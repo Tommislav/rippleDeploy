@@ -8,7 +8,7 @@
     <movie fps="30" />
     <movie width="450" />
     <movie height="450" />
-    <movie version="11" />
+    <movie version="10" />
     <movie background="#FFFFFF" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
@@ -38,7 +38,7 @@
     <option linkReport="" />
     <option loadExterns="" />
     <option staticLinkRSL="True" />
-    <option additional="+configname=air" />
+    <option additional="+configname=air&#xA;" />
     <option compilerConstants="" />
     <option customSDK="" />
   </build>
@@ -53,6 +53,7 @@
     <element path="lib\test\FlexUnit4UIRunner.swc" />
     <element path="lib\test\Hamcrest.swc" />
     <element path="lib\test\flexunit-core-flex-4.1.0.swc" />
+    <element path="lib\test\LURunner-0.2.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
@@ -86,6 +87,6 @@
   <options>
     <option showHiddenPaths="False" />
     <option testMovie="Custom" />
-    <option testMovieCommand="C:\flex\flex_sdk_4_1\bin\adl.exe;application.xml bin" />
+    <option testMovieCommand="$(FlexSDK)\bin\adl.exe;application.xml bin" />
   </options>
 </project>
