@@ -1,0 +1,1 @@
+$(FlexSDK)\bin\adl.exe application.xml bin
