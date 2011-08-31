@@ -23,6 +23,7 @@ package parser.writer
 			var images:String = "";
 			for each (var sheet:TileSheet in data.tileSheets)
 			{
+				
 				var className:String = "Sheet_Class_" + sheet.id;
 				var bitmapName:String = "sheet_" + sheet.id;
 				

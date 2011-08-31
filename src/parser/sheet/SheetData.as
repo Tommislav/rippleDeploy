@@ -21,7 +21,13 @@ package parser.sheet
 			var i:int;
 			
 			var sheetData:SheetData = new SheetData();
-			sheetData.projectDir = xml.project[0].@dir;
+			
+			// remove any trailing "/" or "\" from projectDir to avoid "//"
+			var projectDir:String = xml.project[0].@dir;
+			if (projectDir.lastIndexOf("/") == projectDir.length - 1 || projectDir.lastIndexOf("\\") == projectDir.length - 1)
+				projectDir = projectDir.substr(0, projectDir.length - 1);
+			
+			sheetData.projectDir = projectDir;
 			
 			var xmlTileSheets:XMLList = xml.tileSheets;
 			for each(var sheet:XML in xmlTileSheets)

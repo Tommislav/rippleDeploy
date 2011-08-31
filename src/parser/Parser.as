@@ -10,6 +10,8 @@ package parser
 	 */
 	public class Parser 
 	{
+		
+		
 		private var _model:DataModel;
 		
 		public function Parser() 
@@ -48,6 +50,7 @@ package parser
 		
 		public function canSave():Boolean
 		{
+			return true;
 			if (canOptimize())
 			{
 				for each (var rf:RippleFile in _model.levelXml)
@@ -72,6 +75,8 @@ package parser
 			var optSheet:SheetData = SheetOptimizer.optimizeSheet(sheet, levels);
 			var time:uint = getTimer() - start;
 			
+			// Save optimized data
+			_model.sheetXml.optimizedData = optSheet;
 			
 			// Write report
 			
@@ -95,7 +100,7 @@ package parser
 		
 		public function save():void
 		{
-			
+			LevelPackWriter.writeLevelPack(_model);
 		}
 		
 		public function reset():void

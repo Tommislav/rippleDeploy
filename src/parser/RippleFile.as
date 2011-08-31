@@ -10,7 +10,7 @@ package parser
 		public var type:String;
 		public var rawData:XML;
 		public var parsedData:Object;
-		public var optimized:XML;
+		public var optimizedData:Object;
 		public var isOptimized:Boolean;
 	}
 

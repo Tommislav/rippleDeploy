@@ -4,7 +4,12 @@ package
 	
 	public class [ClassName]
 	{
-		[EmbedFiles]
+		// ### Tile sheets ###
+[EmbedTileSheets]
+		
+		// ### Sounds ###
+[EmbedSounds]
+		
 		
 		private var _sheet:Object = {};
 		private var _levels:Object = {};
@@ -16,7 +21,16 @@ package
 		
 		private function init():void
 		{
-			[init];
+			// Tilesheets
+			[TileSheets]
+			
+			
+			// TileData
+			[TileData]
+			
+			
+			// SpriteData
+			[SpriteData]
 		}
 		
 		public function get sheet():Object { return _sheet; }

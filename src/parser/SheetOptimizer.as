@@ -113,6 +113,7 @@ package parser
 			_sheet.tileSheets = allTileSheets;
 			_sheet.tileData = allTileDatas;
 			_sheet.sprites = allSpriteDatas;
+			
 		}
 		
 		private function getTileDataOrSpriteDataFromId(id:String):Object
