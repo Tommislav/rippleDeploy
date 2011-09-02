@@ -17,9 +17,10 @@ package unittest.parser.writer
 		public function testEmbedMp3Writer():void
 		{
 			var projDir:String = "test";
-			var mp3:EmbedMp3Writer = new EmbedMp3Writer(projDir);
+			var mp3:EmbedMp3Writer = new EmbedMp3Writer();
 			
 			var data:SheetData = new SheetData();
+			data.projectDir = projDir;
 			data.sound = new <Sound> [ newSound( "one", "one.mp3" ) ];
 			
 			var expedted:String = "";

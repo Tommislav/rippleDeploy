@@ -15,14 +15,13 @@ package parser.writer
 		
 		public function write(template:String, data:LevelData, levelName:String):String
 		{
-			var s:String = "";
-			var template:String = "_levels['%name%']={name:'%name%',levelInfo:'%info%',startPos:[%start%],layers:[%layers%]}\n";
-			template = template.replace(/%name%/g, parseName(levelName));
-			template = template.replace(/%info%/g, data.levelInfo);
-			template = template.replace(/%start%/g, parsePos(data.startPos));
-			template = template.replace(/%layers%/g, parseLayers(data.layers));
+			var levelTemplate:String = "_levels['%name%']={name:'%name%',levelInfo:'%info%',startPos:[%start%],layers:[%layers%]}\n";
+			levelTemplate = levelTemplate.replace(/%name%/g, parseName(levelName));
+			levelTemplate = levelTemplate.replace(/%info%/g, data.levelInfo);
+			levelTemplate = levelTemplate.replace(/%start%/g, parsePos(data.startPos));
+			levelTemplate = levelTemplate.replace(/%layers%/g, parseLayers(data.layers));
 			
-			return template.replace("[Level]",s);
+			return template.replace("[Level]",levelTemplate);
 		}
 		
 		private function parseName(name:String):String

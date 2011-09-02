@@ -17,9 +17,9 @@ package parser.writer
 		public function write(template:String, data:SheetData):String
 		{
 			var s:String = "";
-			s += "_sheet.sprites=[]\n";
+			s += "_sheet.sprites=[];\n";
 			
-			var spriteTemplate:String = "_sheet.sprites[%id%]=[%id%,'%name%',[%bb%],'%type%',%p%,[%states%]]\n";
+			var spriteTemplate:String = "_sheet.sprites[%id%]=[%id%,'%name%',[%bb%],'%type%',%p%,[%states%]];\n";
 			
 			for each(var sp:Sprite in data.sprites)
 			{

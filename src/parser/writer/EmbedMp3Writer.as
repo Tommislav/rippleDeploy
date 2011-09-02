@@ -8,11 +8,9 @@ package parser.writer
 	 */
 	public class EmbedMp3Writer implements ISheetWriter
 	{
-		private var _projectDir:String;
 		
-		public function EmbedMp3Writer(projectDir:String) 
+		public function EmbedMp3Writer() 
 		{
-			_projectDir = projectDir;
 		}
 		
 		/* INTERFACE parser.writer.ISheetWriter */
@@ -26,7 +24,7 @@ package parser.writer
 				var className:String = "Sound_Class_" + snd.id;
 				var soundName:String = "sound_" + snd.id;
 				
-				var src:String = _projectDir + "/" + snd.src;
+				var src:String = data.projectDir + "/" + snd.src;
 				
 				s += "[Embed(source='"+ src +"')]\n";
 				s += "private var " + className +":Class;\n";

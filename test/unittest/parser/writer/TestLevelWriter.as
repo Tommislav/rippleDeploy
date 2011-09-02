@@ -30,8 +30,8 @@ package unittest.parser.writer
 		public function testBasicLevelWriter():void
 		{
 			var NAME:String = "level.xml";
-			var expected:String = "_levels['level']={name:'level',levelInfo:'prop=val',startPos:[10,20],layers:[]}\n";
-			assertThat( _writer.write("[Level]", _data, NAME ), equalTo(expected) );
+			var expected:String = "BEFORE*_levels['level']={name:'level',levelInfo:'prop=val',startPos:[10,20],layers:[]}\n*AFTER";
+			assertThat( _writer.write("BEFORE*[Level]*AFTER", _data, NAME ), equalTo(expected) );
 		}
 		
 		[Test]

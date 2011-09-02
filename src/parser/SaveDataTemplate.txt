@@ -30,7 +30,11 @@ package
 			
 			
 			// SpriteData
-			[SpriteData]
+			[Sprites]
+			
+			
+			// Levels
+			[Levels]
 		}
 		
 		public function get sheet():Object { return _sheet; }

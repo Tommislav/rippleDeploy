@@ -9,11 +9,9 @@ package parser.writer
 	 */
 	public class EmbedTileSheetWriter implements ISheetWriter
 	{
-		private var _projectDir:String;
-		
-		public function EmbedTileSheetWriter(projectDir:String) 
+		public function EmbedTileSheetWriter() 
 		{
-			_projectDir = projectDir;
+			
 		}
 		
 		/* INTERFACE parser.writer.ISheetWriter */
@@ -27,7 +25,7 @@ package parser.writer
 				var className:String = "Sheet_Class_" + sheet.id;
 				var bitmapName:String = "sheet_" + sheet.id;
 				
-				var src:String = _projectDir + "/" + sheet.src;
+				var src:String = data.projectDir + "/" + sheet.src;
 				
 				images += "[Embed(source='"+ src +"')]\n";
 				images += "private var " + className +":Class;\n";

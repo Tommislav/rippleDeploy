@@ -28,10 +28,11 @@ package unittest.parser.writer
 			fakeSheet.src = "images/img1.png";
 			
 			var sheetData:SheetData = new SheetData();
+			sheetData.projectDir = projDir;
 			sheetData.tileSheets = new <TileSheet>[ fakeSheet ];
 			
 			var template:String = "BEFORE[EmbedTileSheets]AFTER";
-			var writer:ISheetWriter = new EmbedTileSheetWriter(projDir);
+			var writer:ISheetWriter = new EmbedTileSheetWriter();
 			
 			assertThat( writer.write(template, sheetData), equalTo(expected) );
 		}

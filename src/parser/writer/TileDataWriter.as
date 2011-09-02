@@ -17,7 +17,7 @@ package parser.writer
 			s = "_sheet.tileData = [];\n";
 			
 			for each (var td:TileData in data.tileData)
-				s += "_sheet.tileData[" + td.id + "] = ["+td.id+","+td.sheetId+","+td.x+","+td.y+","+ prop(td.prop) +"]\n";
+				s += "_sheet.tileData[" + td.id + "] = ["+td.id+","+td.sheetId+","+td.x+","+td.y+","+ prop(td.prop) +"];\n";
 			
 			return template.replace( "[TileData]", s );
 		}

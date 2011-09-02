@@ -8,6 +8,7 @@ package parser
 	import parser.writer.EmbedTileSheetWriter;
 	import parser.writer.ILevelWriter;
 	import parser.writer.ISheetWriter;
+	import parser.writer.LevelWriter;
 	import parser.writer.SoundWriter;
 	import parser.writer.SpriteDataWriter;
 	import parser.writer.TileDataWriter;
@@ -27,11 +28,21 @@ package parser
 			
 			_writer.prepare();
 			
-			var code:String = "";
-			code = _writer.writeSheetData(SheetData(model.sheetXml.optimizedData));
+			// Write sheet data
+			_writer.writeSheetData(SheetData(model.sheetXml.optimizedData), model.sheetXml.fileName);
+			
+			// Write level data
+			_writer.writeLevelData(model.levelXml);
+			
+			// Final code
+			var code:String = _writer.code;
 			
 			Clipboard.generalClipboard.setData(ClipboardFormats.TEXT_FORMAT, code);
 		}
+		
+		
+		
+		
 		
 		
 		[Embed(source='SaveDataTemplate.txt' , mimeType = 'application/octet-stream')]
@@ -54,12 +65,11 @@ package parser
 		}
 		
 		
-		protected function writeSheetData(data:SheetData):String
+		protected function writeSheetData(data:SheetData, sheetName:String):String
 		{
-			var projectDir:String = data.projectDir;
 			var writers:Vector.<ISheetWriter> = new <ISheetWriter>[
-							new EmbedTileSheetWriter(projectDir),
-							new EmbedMp3Writer(projectDir),
+							new EmbedTileSheetWriter(),
+							new EmbedMp3Writer(),
 							new TileSheetWriter(),
 							new TileDataWriter(),
 							new SpriteDataWriter(),
@@ -70,12 +80,31 @@ package parser
 			{
 				_template = writers[i].write(_template, data);
 			}
+			
+			_template = _template.replace(/\[ClassName\]/g, sheetName);
 			return _template;
 		}
 		
-		protected function writeLevelData(data:LevelData):String
+		protected function writeLevelData(levels:Vector.<RippleFile>):String
 		{
-			return "";
+			var writer:LevelWriter = new LevelWriter();
+			
+			
+			for each( var levelFile:RippleFile in levels )
+			{
+				_template = _template.replace("[Levels]", "// ### LEVEL "+ levelFile.fileName +" ###\n[Level]\n\n[Levels]");
+				
+				// don't use optimized data, levels aren't optimized
+				var levelData:LevelData = LevelData(levelFile.parsedData);
+				_template = writer.write( _template, levelData, levelFile.fileName );
+			}
+			return _template;
+		}
+		
+		private function get code():String
+		{
+			var codeWithoutLevelMarker:String = _template.replace("[Levels]", "");
+			return codeWithoutLevelMarker;
 		}
 	}
 
