@@ -11,6 +11,7 @@ package parser.sheet
 		public var tileSheets:Vector.<TileSheet> = new Vector.<TileSheet>();
 		public var tileData:Vector.<TileData> = new Vector.<TileData>();
 		public var sprites:Vector.<Sprite> = new Vector.<Sprite>();
+		public var animatedTiles:Vector.<SpriteState> = new Vector.<SpriteState>();
 		public var sound:Vector.<Sound> = new Vector.<Sound>();
 		
 		
@@ -47,6 +48,12 @@ package parser.sheet
 				sheetData.sprites.push( Sprite.fromXml(sp) );
 			}
 			
+			var animTiles:XMLList = xml.sprite.sprite.(@type == "animatedTile");
+			for each(var anim:XML in animTiles)
+			{
+				sheetData.animatedTiles.push( SpriteState.fromXml(anim) );
+			}
+			
 			var xmlSoundData:XMLList = xml.sound;
 			for each(var snd:XML in xmlSoundData)
 			{
@@ -60,7 +67,7 @@ package parser.sheet
 		
 		public function toString():String
 		{
-			return "Sheet XML, tileSheets("+tileSheets.length+"), tileData("+tileData.length+"), sprites("+sprites.length+"), sounds("+sound.length+")";
+			return "Sheet XML, tileSheets("+tileSheets.length+"), tileData("+tileData.length+"), sprites("+sprites.length+"), animTiles("+animatedTiles.length+"), sounds("+sound.length+")";
 		}
 		
 		public function clone():SheetData
@@ -77,6 +84,9 @@ package parser.sheet
 			
 			for (i = 0; i < sprites.length; i++ )
 				sd.sprites.push(this.sprites[i].clone());
+			
+			for (i = 0; i < animatedTiles.length; i++ )
+				sd.animatedTiles.push(this.animatedTiles[i].clone());
 			
 			for (i = 0; i < sound.length; i++ )
 				sd.sound.push(this.sound[i].clone());

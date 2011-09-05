@@ -1,11 +1,14 @@
 package parser 
 {
+	import flash.geom.Rectangle;
 	import flash.utils.getTimer;
 	import parser.level.Layer;
 	import parser.level.LevelData;
 	import parser.level.Tile;
 	import parser.sheet.SheetData;
 	import parser.sheet.Sprite;
+	import parser.sheet.SpriteState;
+	import parser.sheet.SpriteTypes;
 	import parser.sheet.TileData;
 	import parser.sheet.TileSheet;
 	import parser.util.UniqueifyList;
@@ -67,6 +70,7 @@ package parser
 		{
 			var allTileDatas:Vector.<TileData> = new Vector.<TileData>();
 			var allSpriteDatas:Vector.<Sprite> = new Vector.<Sprite>();
+			var allAnimatedTiles:Vector.<SpriteState> = new Vector.<SpriteState>();
 			var allSpriteFrames:Vector.<String> = new Vector.<String>();
 			for each( var id:String in _allLayerObjects )
 			{
@@ -79,6 +83,12 @@ package parser
 				{
 					allSpriteDatas.push(Sprite(obj));
 					UniqueifyList.getUnique(allSpriteFrames, Sprite(obj).allFrames);
+				}
+				
+				if (obj is SpriteState)
+				{
+					allAnimatedTiles.push(SpriteState(obj));
+					UniqueifyList.getUnique(allSpriteFrames, SpriteState(obj).frames);
 				}
 			}
 			
@@ -110,16 +120,37 @@ package parser
 				}
 			}
 			
+			// Fake sprite - holder for our animated tiles
+			if (allAnimatedTiles.length > 0)
+			{
+				var aniSprite:Sprite = new Sprite();
+				aniSprite.type = SpriteTypes.TYPE_SPRITE;
+				aniSprite.bb = new Rectangle();
+				aniSprite.p = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+				
+				aniSprite.spriteStates = allAnimatedTiles;
+				aniSprite.name = "tiles";
+				aniSprite.id = "1";
+				
+				for each(var ss:SpriteState in allAnimatedTiles)
+					UniqueifyList.getUnique(aniSprite.allFrames, ss.frames);
+				
+				allSpriteDatas.push(aniSprite);
+			}
+			
+			
+			
 			_sheet.tileSheets = allTileSheets;
 			_sheet.tileData = allTileDatas;
 			_sheet.sprites = allSpriteDatas;
-			
+			_sheet.animatedTiles = allAnimatedTiles;
 		}
 		
 		private function getTileDataOrSpriteDataFromId(id:String):Object
 		{
 			var td:Vector.<TileData> = _sheet.tileData;
 			var sp:Vector.<Sprite> = _sheet.sprites;
+			var ani:Vector.<SpriteState> = _sheet.animatedTiles;
 			var i:int;
 			var len:int = td.length;
 			for (i = 0; i < len; i++ )
@@ -134,6 +165,14 @@ package parser
 				if (sp[i].id == id)
 					return sp[i];
 			}
+			
+			len = ani.length;
+			for (i = 0; i < len; i++ )
+			{
+				if (ani[i].id == id)
+					return ani[i];
+			}
+			
 			throw new Error("Could not find TileData with id " + id + ", sure this sheet and level belongs together?");
 		}
 		
