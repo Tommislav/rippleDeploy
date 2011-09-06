@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<application xmlns="http://ns.adobe.com/air/application/1.5">
+<application xmlns="http://ns.adobe.com/air/application/2.0">
 	
 	<id>rippleDeploy</id> 
 	<version>1.0</version> 
 	<filename>rippleDeploy</filename> 
+	<supportedProfiles>extendedDesktop</supportedProfiles> <!-- need this to be able to invoke command line -->
 	
 	<name>rippleDeploy</name> 
 	<description></description> 
