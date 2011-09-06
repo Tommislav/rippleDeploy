@@ -28,7 +28,7 @@ package parser.writer
 		
 		private function getShortType(type:String):String
 		{
-			return (type == TileSheet.TYPE_TILE) ? "T" : "S";
+			return (type == TileSheet.TYPE_TILE) ? "'T'" : "'S'";
 		}
 		
 	}

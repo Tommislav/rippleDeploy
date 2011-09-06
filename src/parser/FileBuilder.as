@@ -28,6 +28,11 @@ package parser
 				rf.type = Type.UNKNOWN;
 				rf.fileName = f.name;
 				
+				if (rf.fileName.lastIndexOf(".xml") == rf.fileName.length - 4)
+					rf.fileName = rf.fileName.substr(0, rf.fileName.length - 4);
+				
+				trace("FILENAME: " + rf.fileName);
+				
 				
 				if (xml.tileSheets.length() > 0)
 				{

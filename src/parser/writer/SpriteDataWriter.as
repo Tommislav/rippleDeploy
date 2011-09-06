@@ -68,6 +68,9 @@ package parser.writer
 			if (isZero)
 				return "'z'";
 			
+			if (p[0].indexOf("=") > -1)
+				p[0] = "'" + p[0] + "'";
+			
 			return "[" + p.join(",") + "]";
 		}
 		private function parseStates(states:Vector.<SpriteState>):String

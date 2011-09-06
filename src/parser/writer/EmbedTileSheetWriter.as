@@ -26,6 +26,7 @@ package parser.writer
 				var bitmapName:String = "sheet_" + sheet.id;
 				
 				var src:String = data.projectDir + "/" + sheet.src;
+				src = src.replace(/\%20/g, " ");
 				
 				images += "[Embed(source='"+ src +"')]\n";
 				images += "private var " + className +":Class;\n";

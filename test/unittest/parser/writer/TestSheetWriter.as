@@ -18,7 +18,7 @@ package unittest.parser.writer
 			var exptected:String = "";
 			exptected += "BEFORE";
 			exptected += "_sheet.tileSheets = {}\n";
-			exptected += "_sheet.tileSheets[1] = [1,sheet_1,T,10,20]\n";
+			exptected += "_sheet.tileSheets[1] = [1,sheet_1,'T',10,20]\n";
 			exptected += "AFTER";
 			
 			var sheet:TileSheet = new TileSheet();

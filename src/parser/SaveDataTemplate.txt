@@ -1,8 +1,11 @@
 package
 {
 	// imports goes here
+	import flash.display.Sprite;
+	import flash.display.BitmapData;
+	import flash.media.Sound;
 	
-	public class [ClassName]
+	public class [ClassName] extends Sprite
 	{
 		// ### Tile sheets ###
 [EmbedTileSheets]
@@ -38,7 +41,7 @@ package
 		}
 		
 		public function get sheet():Object { return _sheet; }
-		public function getLevel(levelName:String):Object
+		public function getLevel(id:String):Object
 		{
 			if (_levels[id] != null)
 				return _levels[id];

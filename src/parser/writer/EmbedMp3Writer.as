@@ -25,6 +25,7 @@ package parser.writer
 				var soundName:String = "sound_" + snd.id;
 				
 				var src:String = data.projectDir + "/" + snd.src;
+				src = src.replace(/\%20/g, " ");
 				
 				s += "[Embed(source='"+ src +"')]\n";
 				s += "private var " + className +":Class;\n";

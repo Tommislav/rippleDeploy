@@ -17,12 +17,12 @@ package unittest.parser.writer
 		{
 			var expected:String = "";
 			expected += "BEFORE";
-			expected += "[Embed(source='proj/images/img1.png')]\n";
+			expected += "[Embed(source='proj ect/images/img1.png')]\n";
 			expected += "private var Sheet_Class_1:Class;\n";
 			expected += "private var sheet_1:BitmapData = new Sheet_Class_1().bitmapData;\n\n";
 			expected += "AFTER";
 			
-			var projDir:String = "proj";
+			var projDir:String = "proj%20ect";
 			var fakeSheet:TileSheet = new TileSheet();
 			fakeSheet.id = "1";
 			fakeSheet.src = "images/img1.png";

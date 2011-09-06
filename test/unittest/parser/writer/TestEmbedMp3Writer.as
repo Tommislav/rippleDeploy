@@ -16,7 +16,7 @@ package unittest.parser.writer
 		[Test]
 		public function testEmbedMp3Writer():void
 		{
-			var projDir:String = "test";
+			var projDir:String = "test%20test";
 			var mp3:EmbedMp3Writer = new EmbedMp3Writer();
 			
 			var data:SheetData = new SheetData();
@@ -25,7 +25,7 @@ package unittest.parser.writer
 			
 			var expedted:String = "";
 			expedted += "BEFORE";
-			expedted += "[Embed(source='test/one.mp3')]\n";
+			expedted += "[Embed(source='test test/one.mp3')]\n";
 			expedted += "private var Sound_Class_one:Class;\n";
 			expedted += "private var sound_one:Sound = new Sound_Class_one();\n\n";
 			expedted += "AFTER";

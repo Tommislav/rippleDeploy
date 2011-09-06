@@ -38,6 +38,9 @@ package parser
 			var code:String = _writer.code;
 			
 			Clipboard.generalClipboard.setData(ClipboardFormats.TEXT_FORMAT, code);
+			
+			var saveDataCmd:SaveData = new SaveData( code, "Save As", model.sheetXml.fileName + ".as", "rippleLevelDeploy" );
+			saveDataCmd.execute();
 		}
 		
 		
@@ -106,6 +109,7 @@ package parser
 			var codeWithoutLevelMarker:String = _template.replace("[Levels]", "");
 			return codeWithoutLevelMarker;
 		}
+		
 	}
 
 }

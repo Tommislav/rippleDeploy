@@ -6,6 +6,7 @@ package
 	import com.bit101.components.TextArea;
 	import flash.desktop.ClipboardFormats;
 	import flash.desktop.NativeDragManager;
+	import flash.desktop.NativeProcess;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.NativeDragEvent;
@@ -73,6 +74,9 @@ package
 			_rect.addEventListener( NativeDragEvent.NATIVE_DRAG_DROP, onDragDrop );
 			
 			reset(null);
+			
+			var nativeProcessSupport:Boolean = NativeProcess.isSupported;
+			log("Native process supported: " + nativeProcessSupport );
 		}
 		
 		private function optimize(e:Event):void 
