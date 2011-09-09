@@ -13,6 +13,7 @@ package
 	import flash.filesystem.File;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
+	import parser.CompileSwf;
 	import parser.Parser;
 	import parser.RippleFile;
 	import util.TabularText;
@@ -100,6 +101,10 @@ package
 		
 		private function reset(e:Event):void 
 		{
+			//var compileCmd:CompileSwf = new CompileSwf("");
+			//compileCmd.execute();
+			
+			
 			_parser.reset();
 			
 			showFiles();

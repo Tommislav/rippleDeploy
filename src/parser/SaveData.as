@@ -1,10 +1,12 @@
 package parser 
 {
 	import flash.events.Event;
+	import flash.events.TimerEvent;
 	import flash.filesystem.File;
 	import flash.filesystem.FileMode;
 	import flash.filesystem.FileStream;
 	import flash.utils.Dictionary;
+	import flash.utils.Timer;
 	/**
 	 * ...
 	 * @author Tommislav
@@ -17,6 +19,7 @@ package parser
 		private var _title:String;
 		private var _fileName:String;
 		private var _key:String;
+		private var _fullFileUri:String;
 		
 		
 		public function SaveData(data:String, title:String="Save As", fileName:String="", key:String="") 
@@ -62,16 +65,22 @@ package parser
 			stream.close();
 		    
 			// Save folder
-			var uri:String = file.url;
-			uri = uri.replace(_fileName, "");
+			_fullFileUri = file.url;
+			var uri:String = _fullFileUri.replace(_fileName, "");
 			_savedFilesWithKeys[_key] = uri;
 			
 		    // Clean up!
 		    file.removeEventListener( Event.SELECT, onSave );
 			
-			
-			
-			
+			var t:Timer = new Timer(500, 1);
+			t.addEventListener(TimerEvent.TIMER_COMPLETE, onTimerComplete, false, 0, true);
+			t.start();
+		}
+		
+		private function onTimerComplete(e:TimerEvent):void
+		{
+			var compile:CompileSwf = new CompileSwf( _fullFileUri );
+			compile.execute();
 		}
 	}
 

@@ -6,6 +6,7 @@ package parser
 	 */
 	public class RippleFile 
 	{
+		public var path:String;
 		public var fileName:String;
 		public var type:String;
 		public var rawData:XML;
