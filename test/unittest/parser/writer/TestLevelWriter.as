@@ -55,7 +55,7 @@ package unittest.parser.writer
 			lay.tiles.push( newTile( "2", 64, 64 ) );
 			_data.layers.push(lay);
 			
-			var subStr:String = "[\n{id:'obj',pos:[0,0,0],obj:true,t:[[1,10,20,'str=10'],[2,64,64]]}\n]";
+			var subStr:String = "[\n{id:'obj',pos:[0,0,0],obj:true,t:[[1,10,20,\"str=10\"],[2,64,64]]}\n]";
 			assertThat( _writer.write("[Level]", _data, ""), containsString(subStr) );
 		}
 		

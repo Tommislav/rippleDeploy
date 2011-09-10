@@ -69,7 +69,7 @@ package parser.writer
 				return "'z'";
 			
 			if (p[0].indexOf("=") > -1)
-				p[0] = "'" + p[0] + "'";
+				p[0] = "\"" + p[0] + "\"";
 			
 			return "[" + p.join(",") + "]";
 		}

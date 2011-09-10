@@ -18,7 +18,7 @@ package parser
 	 */
 	public class SheetOptimizer 
 	{
-		public static function optimizeSheet(sheet:SheetData, levels:Vector.<LevelData>):SheetData
+		public static function optimizeSheet(sheet:SheetData, levels:Vector.<LevelData>, projectDir:String=""):SheetData
 		{
 			var start:uint = getTimer();
 			var optSheet:SheetData = sheet.clone();
@@ -30,6 +30,9 @@ package parser
 			}
 			
 			opt.optimizeSheet();
+			
+			if (projectDir != "")
+				optSheet.projectDir = projectDir;
 			
 			trace("FIRST PASS TOOK " + (getTimer() - start) + " ms");
 			return optSheet;

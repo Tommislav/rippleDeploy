@@ -6,6 +6,7 @@ package parser
 	import flash.events.NativeProcessExitEvent;
 	import flash.events.ProgressEvent;
 	import flash.filesystem.File;
+	import parser.log.GlobalLogDispatcher;
 	/**
 	 * ...
 	 * @author Tommislav
@@ -35,6 +36,7 @@ package parser
 			
 			var toCompile:String = _fileName.replace("file:///", "");
 			
+			trace("bat script " + batScript);
 			trace("Compile " + toCompile);
 			var args:Vector.<String> = new <String> ["/c", batScript, toCompile];
 			nativeInfo.arguments = args;
@@ -51,22 +53,27 @@ package parser
 		
 		public function onOutputData(event:ProgressEvent):void
         {
-            trace("Got: ", _process.standardOutput.readUTFBytes(_process.standardOutput.bytesAvailable)); 
+			var s:String = _process.standardOutput.readUTFBytes(_process.standardOutput.bytesAvailable);
+			//s = s.replace("\n" + "");
+			GlobalLogDispatcher.log( "### " + s );
         }
         
         public function onErrorData(event:ProgressEvent):void
         {
-            trace("ERROR -", _process.standardError.readUTFBytes(_process.standardError.bytesAvailable)); 
+			var s:String = _process.standardError.readUTFBytes(_process.standardError.bytesAvailable);
+			GlobalLogDispatcher.log( "#ERROR# " + s );
         }
         
         public function onExit(event:NativeProcessExitEvent):void
         {
-            trace("Process exited with ", event.exitCode);
+			var s:String = "#EXITCODE# " + event.exitCode;
+            GlobalLogDispatcher.log("#EXIT# " + s );
         }
         
         public function onIOError(event:IOErrorEvent):void
         {
-             trace(event.toString());
+			GlobalLogDispatcher.log(event.toString());
+            trace(event.toString());
         }
 	}
 

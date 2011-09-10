@@ -8,12 +8,16 @@ package
 	import flash.desktop.NativeDragManager;
 	import flash.desktop.NativeProcess;
 	import flash.display.Sprite;
+	import flash.display.StageAlign;
+	import flash.display.StageScaleMode;
 	import flash.events.Event;
 	import flash.events.NativeDragEvent;
 	import flash.filesystem.File;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import parser.CompileSwf;
+	import parser.log.GlobalLogDispatcher;
+	import parser.log.LogEvent;
 	import parser.Parser;
 	import parser.RippleFile;
 	import util.TabularText;
@@ -40,6 +44,9 @@ package
 		
 		public function Main():void 
 		{
+			stage.scaleMode = StageScaleMode.NO_SCALE;
+			stage.align = StageAlign.TOP_LEFT;
+			
 			_parser = new Parser();
 			
 			var isSupported:Boolean = NativeDragManager.isSupported;
@@ -58,8 +65,8 @@ package
 			_resetBtn = new PushButton(this, 280, 5, "Reset", reset );
 			
 			_info = new TextArea( this, 5, 50, "" );
-			_info.width = 700;
 			_info.width = 400;
+			_info.height = 300;
 			
 			_tf = new TextField();
 			_tf.selectable = false;
@@ -67,7 +74,7 @@ package
 			_tf.defaultTextFormat = new TextFormat("_typewriter");
 			_tf.autoSize = "left";
 			_tf.x = 5;
-			_tf.y = 165;
+			_tf.y = 365;
 			addChild( _tf );
 			
 			
@@ -78,6 +85,8 @@ package
 			
 			var nativeProcessSupport:Boolean = NativeProcess.isSupported;
 			log("Native process supported: " + nativeProcessSupport );
+			
+			GlobalLogDispatcher.logDispatcher.addEventListener( LogEvent.MSG, onLogEvent );
 		}
 		
 		private function optimize(e:Event):void 
@@ -161,5 +170,12 @@ package
 			_txt = s + "\n" + _txt;
 			_info.text = _txt;
 		}
+		
+		
+		private function onLogEvent(e:LogEvent):void
+		{
+			log(e.msg);
+		}
+		
 	}
 }

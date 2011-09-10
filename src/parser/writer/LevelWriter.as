@@ -66,7 +66,7 @@ package parser.writer
 			{
 				var s:String = tile.id + "," + tile.x + "," + tile.y;
 				if (tile.extra != "")
-					s += ",'" + tile.extra + "'";
+					s += ",\"" + tile.extra + "\"";
 				a.push( "[" + s + "]" );
 			}
 			return a.join(",");

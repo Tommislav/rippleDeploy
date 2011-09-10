@@ -30,7 +30,7 @@ package unittest.parser
 		{
 			_orgSheet = FakeSheetData.getData();
 			var level:LevelData = FakeLevelData.getData();
-			_optSheet = SheetOptimizer.optimizeSheet(_orgSheet, new <LevelData>[level] );
+			_optSheet = SheetOptimizer.optimizeSheet(_orgSheet, new <LevelData>[level], "" );
 		}
 		
 		[Test]

@@ -64,7 +64,7 @@ package unittest.parser.writer
 			var expected:String = "";
 			expected += "BEFORE";
 			expected += "_sheet.sprites=[];\n";
-			expected += "_sheet.sprites[1]=[1,'sprite',[0,1,32,64],'s',['str=4',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[]];\n";
+			expected += "_sheet.sprites[1]=[1,'sprite',[0,1,32,64],'s',[\"str=4\",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[]];\n";
 			expected += "AFTER";
 			
 			var template:String = "BEFORE[Sprites]AFTER";

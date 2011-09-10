@@ -72,7 +72,7 @@ package parser
 				levels.push(lvl.parsedData);
 			
 			var start:uint = getTimer();
-			var optSheet:SheetData = SheetOptimizer.optimizeSheet(sheet, levels);
+			var optSheet:SheetData = SheetOptimizer.optimizeSheet(sheet, levels, _model.sheetXml.path);
 			var time:uint = getTimer() - start;
 			
 			// Save optimized data
