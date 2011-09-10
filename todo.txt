@@ -1,8 +1,20 @@
-Sheetwriter:
-O build full sheetwriter
-O save sheet as .as-file same name as sheet.xml name
-O compile to .swf with same name as sheet.xml
+===============================================================================
+This is what is needed to be done to have a fully working deploy of the levels!
+===============================================================================
 
-LevelWriter
-X build levelwriter
-O save level with same name as level.xml name
+1. We need to be able to parse and save a sheet without optimizing it. A "common"-pack including the
+player spritesheets and all common sounds.
+
+2. We need to extract all the common sounds from the sheet-xmls
+
+3. We need to include the titlecards and all objects that spawn in the levelpacks!
+
+4. We need to write a loader/parser for theese new levelpacks that:
+	4a. Has good failsafe routines if a levelpack cannot be found. Go through a list of known hosts!
+	4b. Parses the data (duh)
+	4c. Stores common data in a persistant way, sounds AND assets
+
+
+5. Exclude metadata-layer(?)
+
+
