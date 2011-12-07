@@ -59,9 +59,7 @@ package
 			
 			_indicator = new IndicatorLight( this, 5, 10, 0x00ff00, "READY" );
 			_optimizeBtn = new PushButton( this, 60, 5, "Optimize", optimize );
-			_optimizeBtn.enabled = false;
 			_saveBtn = new PushButton(this, 170, 5, "Save", save);
-			_saveBtn.enabled = false;
 			_resetBtn = new PushButton(this, 280, 5, "Reset", reset );
 			
 			_info = new TextArea( this, 5, 50, "" );
@@ -95,7 +93,6 @@ package
 			{
 				log("OPTIMIZING...");
 				log(_parser.optimize());
-				_saveBtn.enabled = _parser.canSave();
 			}
 		}
 		
@@ -118,8 +115,6 @@ package
 			
 			showFiles();
 			_indicator.isLit = false;
-			_optimizeBtn.enabled = false;
-			_saveBtn.enabled = false;
 			_resetBtn.enabled = true;
 			_txt = "";
 			log("Start by dragging a sheet xml and at least one level xml");
@@ -159,9 +154,6 @@ package
 			}
 			
 			_tf.text = _tab.toString();
-			
-			_indicator.isLit = _parser.canOptimize();
-			_optimizeBtn.enabled = _parser.canOptimize();
 		}
 		
 		private function log(s:String):void

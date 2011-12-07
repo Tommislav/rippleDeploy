@@ -23,16 +23,20 @@ package parser
 		private static var _writer:LevelPackWriter;
 		public static function writeLevelPack(model:DataModel):void
 		{
-			if (_writer == null)
-				_writer = new LevelPackWriter();
+			//if (_writer == null)
+			_writer = new LevelPackWriter();
 			
 			_writer.prepare();
 			
 			// Write sheet data
-			_writer.writeSheetData(SheetData(model.sheetXml.optimizedData), model.sheetXml.fileName);
+			var sheetData:Object = (model.sheetXml.isOptimized) ? model.sheetXml.optimizedData : model.sheetXml.parsedData;
+			_writer.writeSheetData(SheetData(sheetData), model.sheetXml.fileName);
 			
-			// Write level data
-			_writer.writeLevelData(model.levelXml);
+			if (model.levelXml != null)
+			{
+				// Write level data
+				_writer.writeLevelData(model.levelXml);
+			}
 			
 			// Final code
 			var code:String = _writer.code;

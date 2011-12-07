@@ -39,6 +39,7 @@ package parser
 					
 					var start:int = getTimer();
 					rf.parsedData = SheetData.fromXml( xml );
+					SheetData(rf.parsedData).projectDir = rf.path;
 					trace("Parse sheet xml " + rf.fileName + " ("+ (getTimer() - start) +" ms)");
 				}
 				else if (xml.layer.length() > 0 && xml.layer[0].tile.length() > 0)
