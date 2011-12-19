@@ -35,6 +35,8 @@ package
 			// SpriteData
 			[Sprites]
 			
+			// Sounds
+			[Sounds]
 			
 			// Levels
 			[Levels]
