@@ -6,15 +6,14 @@
     <movie input="" />
     <movie path="bin\rippleDeploy.swf" />
     <movie fps="30" />
-    <movie width="450" />
-    <movie height="500" />
-    <movie version="11" />
+    <movie width="800" />
+    <movie height="600" />
+    <movie version="10" />
     <movie background="#FFFFFF" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
     <class path="src" />
-    <class path="test" />
   </classpaths>
   <!-- Build options -->
   <build>
@@ -31,14 +30,14 @@
     <option showDeprecationWarnings="True" />
     <option showUnusedTypeSelectorWarnings="True" />
     <option strict="True" />
-    <option useNetwork="False" />
+    <option useNetwork="True" />
     <option useResourceBundleMetadata="True" />
     <option warnings="True" />
     <option verboseStackTraces="False" />
     <option linkReport="" />
     <option loadExterns="" />
     <option staticLinkRSL="True" />
-    <option additional="+configname=air&#xA;" />
+    <option additional="+configname=air" />
     <option compilerConstants="" />
     <option customSDK="" />
   </build>
@@ -48,12 +47,8 @@
   </includeLibraries>
   <!-- SWC Libraries -->
   <libraryPaths>
-    <element path="lib\as3-signals-v0.7.swc" />
     <element path="lib\MinimalComps_0_9_10.swc" />
-    <element path="lib\test\FlexUnit4UIRunner.swc" />
-    <element path="lib\test\Hamcrest.swc" />
-    <element path="lib\test\flexunit-core-flex-4.1.0.swc" />
-    <element path="lib\test\LURunner-0.2.swc" />
+    <element path="lib\as3-signals-v0.7.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
@@ -87,6 +82,6 @@
   <options>
     <option showHiddenPaths="False" />
     <option testMovie="Custom" />
-    <option testMovieCommand="runWorkLaptop.bat" />
+    <option testMovieCommand="runPixeltruss.bat" />
   </options>
 </project>
