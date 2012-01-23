@@ -25,9 +25,9 @@ package unittest.parser.writer
 			
 			var exptected:String = "";
 			exptected += "BEFORE";
-			exptected += "_sheet.tileData = [];\n";
-			exptected += "_sheet.tileData[1] = [1,2,3,4,'z'];\n";
-			exptected += "_sheet.tileData[2] = [2,3,0,0,[9,8,7,6]];\n";
+			exptected += "_sheet.tileDatas = [];\n";
+			exptected += "_sheet.tileDatas[1] = [1,2,3,4,'z'];\n";
+			exptected += "_sheet.tileDatas[2] = [2,3,0,0,[9,8,7,6]];\n";
 			exptected += "AFTER";
 			
 			var template:String = "BEFORE[TileData]AFTER";

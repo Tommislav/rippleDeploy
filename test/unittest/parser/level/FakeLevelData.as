@@ -7,7 +7,7 @@ package unittest.parser.level
 	 */
 	public class FakeLevelData
 	{
-		[Embed(source = '../../assets/level1.xml', mimeType='application/octet-stream')]
+		[Embed(source='../../assets/level1.xml', mimeType='application/octet-stream')]
 		private static var Level:Class;
 		
 		public static function getData():LevelData

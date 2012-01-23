@@ -14,10 +14,10 @@ package parser.writer
 		public function write(template:String, data:SheetData):String
 		{
 			var s:String = "";
-			s = "_sheet.tileData = [];\n";
+			s = "_sheet.tileDatas = [];\n";
 			
 			for each (var td:TileData in data.tileData)
-				s += "_sheet.tileData[" + td.id + "] = ["+td.id+","+td.sheetId+","+td.x+","+td.y+","+ prop(td.prop) +"];\n";
+				s += "_sheet.tileDatas[" + td.id + "] = ["+td.id+","+td.sheetId+","+td.x+","+td.y+","+ prop(td.prop) +"];\n";
 			
 			return template.replace( "[TileData]", s );
 		}
