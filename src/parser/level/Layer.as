@@ -10,6 +10,7 @@ package parser.level
 		public var x:int;
 		public var y:int;
 		public var d:int;
+		public var width:int;
 		public var obj:Boolean;
 		public var tiles:Vector.<Tile> = new Vector.<Tile>();
 		
@@ -22,6 +23,7 @@ package parser.level
 			lay.x = parseInt(xml.@x);
 			lay.y = parseInt(xml.@y);
 			lay.d = parseInt(xml.@d);
+			lay.width = 0;
 			lay.obj = (xml.@obj == "true") ? true : false;
 			
 			var xmlTile:XMLList = xml.tile;
@@ -34,6 +36,9 @@ package parser.level
 					lay.allTileIds.push(parsedTile.id);
 				
 				lay.tiles.push(parsedTile);
+				
+				if (parsedTile.x > lay.width)
+					lay.width = parsedTile.x;
 			}
 			return lay;
 		}

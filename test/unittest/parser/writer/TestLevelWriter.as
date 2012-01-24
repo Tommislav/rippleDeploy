@@ -40,10 +40,10 @@ package unittest.parser.writer
 			var lay:Layer = newLayer("lay1", 1, 2, 3, false);
 			lay.tiles.push( newTile( "1", 10, 20 ) );
 			lay.tiles.push( newTile( "2", 40, 50 ) );
-			
+			lay.width = 1234;
 			_data.layers.push(lay);
 			
-			var subStr:String = "[\n{id:'lay1',pos:[1,2,3],obj:false,t:[[1,10,20],[2,40,50]]}\n]";
+			var subStr:String = "[\n{id:'lay1',pos:[1,2,3],obj:false,width:1234,t:[[1,10,20],[2,40,50]]}\n]";
 			assertThat( _writer.write("[Level]", _data, ""), containsString(subStr) );
 		}
 		
@@ -53,9 +53,10 @@ package unittest.parser.writer
 			var lay:Layer = newLayer("obj", 0, 0, 0, true);
 			lay.tiles.push( newTile( "1", 10, 20, "str=10" ) );
 			lay.tiles.push( newTile( "2", 64, 64 ) );
+			lay.width = 64;
 			_data.layers.push(lay);
 			
-			var subStr:String = "[\n{id:'obj',pos:[0,0,0],obj:true,t:[[1,10,20,\"str=10\"],[2,64,64]]}\n]";
+			var subStr:String = "[\n{id:'obj',pos:[0,0,0],obj:true,width:64,t:[[1,10,20,\"str=10\"],[2,64,64]]}\n]";
 			assertThat( _writer.write("[Level]", _data, ""), containsString(subStr) );
 		}
 		

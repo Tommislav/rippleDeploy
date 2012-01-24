@@ -41,7 +41,7 @@ package parser.writer
 				return "";
 			
 			//var template:String = "[\n{id:%id%,pos:%pos%,obj:%obj%,t:[%tiles%]}\n]";
-			var template:String = "{id:'%id%',pos:[%pos%],obj:%obj%,t:[%tiles%]}";
+			var template:String = "{id:'%id%',pos:[%pos%],obj:%obj%,width:%width%,t:[%tiles%]}";
 			var a:Array = new Array();
 			for each (var lay:Layer in layers)
 			{
@@ -55,6 +55,7 @@ package parser.writer
 			template = template.replace(/%id%/g, lay.id);
 			template = template.replace(/%pos%/g, lay.x + "," + lay.y + "," + lay.d);
 			template = template.replace(/%obj%/g, lay.obj);
+			template = template.replace(/%width%/g, lay.width);
 			template = template.replace(/%tiles%/g, parseTiles(lay.tiles));
 			return template;
 		}

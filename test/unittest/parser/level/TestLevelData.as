@@ -54,6 +54,15 @@ package unittest.parser.level
 			validateObject(layer, data);
 		}
 		
+		
+		[Test]
+		public function testLayerWidth():void
+		{
+			var layer:Layer = _levelData.layers[0];
+			assertThat(layer.width, equalTo(372)); // layer width is equal to the x-value of the rightmost tile
+		}
+		
+		
 		private function validateObject(obj:Object, prop:Object):void
 		{
 			for (var name:String in prop)

@@ -49,6 +49,8 @@
   <libraryPaths>
     <element path="lib\MinimalComps_0_9_10.swc" />
     <element path="lib\as3-signals-v0.7.swc" />
+    <element path="lib\test\Hamcrest.swc" />
+    <element path="lib\test\flexunit-core-flex-4.1.0.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
