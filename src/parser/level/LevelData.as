@@ -1,6 +1,7 @@
 package parser.level 
 {
 	import flash.geom.Point;
+	import parser.sheet.SheetData;
 	/**
 	 * ...
 	 * @author Tommislav

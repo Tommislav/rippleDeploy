@@ -1,5 +1,7 @@
 package parser.level 
 {
+	import parser.sheet.SheetData;
+	import parser.sheet.Sprite;
 	/**
 	 * ...
 	 * @author Tommislav
@@ -37,15 +39,20 @@ package parser.level
 				
 				lay.tiles.push(parsedTile);
 				
-				if (parsedTile.x > lay.width)
-					lay.width = parsedTile.x;
+				// determine width of layer, different for object or regular layers
+				if (!lay.obj)
+				{
+					if (parsedTile.x > lay.width)
+						lay.width = parsedTile.x;
+				}
 			}
 			return lay;
 		}
 		
+		
 		public function toString():String
 		{
-			return "Layer: " + this.id + ",  tiles: " + tiles.length + "  (unique "+ allTileIds.length +")";
+			return "Layer: " + this.id + ",  tiles: " + tiles.length + "  (unique "+ allTileIds.length +") width: " + width;
 		}
 	}
 

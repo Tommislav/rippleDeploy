@@ -28,7 +28,9 @@ package parser
 					_model.sheetXml = rf;
 				else if (rf.type == Type.LEVEL_XML)
 					_model.levelXml.push( rf );
-					
+				
+				
+				_model.adjustObjectLayerWidth();
 				return "File: " + file.name + "; type: " + rf.type + "\n" + rf.parsedData + "\n-----------------------------------";
 			}
 			return "Unkown file";

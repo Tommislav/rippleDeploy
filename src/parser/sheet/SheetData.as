@@ -1,5 +1,6 @@
 package parser.sheet 
 {
+	import flash.utils.Dictionary;
 	import flash.utils.getTimer;
 	/**
 	 * ...
@@ -14,6 +15,9 @@ package parser.sheet
 		public var animatedTiles:Vector.<SpriteState> = new Vector.<SpriteState>();
 		public var sound:Vector.<Sound> = new Vector.<Sound>();
 		
+		public var spriteById:Dictionary = new Dictionary();
+		public var tileDataById:Dictionary = new Dictionary();
+		public var tileSheetById:Dictionary = new Dictionary();
 		
 		
 		public static function fromXml(xml:XML):SheetData
@@ -33,19 +37,25 @@ package parser.sheet
 			var xmlTileSheets:XMLList = xml.tileSheets;
 			for each(var sheet:XML in xmlTileSheets)
 			{
-				sheetData.tileSheets.push( TileSheet.fromXml(sheet) );
+				var tilesheet:TileSheet = TileSheet.fromXml(sheet);
+				sheetData.tileSheets.push( tilesheet );
+				sheetData.tileSheetById[tilesheet.id] = tilesheet;
 			}
 			
 			var xmlTileData:XMLList = xml.tileData;
 			for each(var td:XML in xmlTileData)
 			{
-				sheetData.tileData.push( TileData.fromXml(td) );
+				var tileData:TileData = TileData.fromXml(td);
+				sheetData.tileData.push( tileData );
+				sheetData.tileDataById[tileData.id] = tileData;
 			}
 			
 			var xmlSpriteData:XMLList = xml.sprite;
 			for each(var sp:XML in xmlSpriteData)
 			{
-				sheetData.sprites.push( Sprite.fromXml(sp) );
+				var sprite:Sprite = Sprite.fromXml(sp)
+				sheetData.sprites.push( sprite );
+				sheetData.spriteById[sprite.id] = sprite;
 			}
 			
 			var animTiles:XMLList = xml.sprite.sprite.(@type == "animatedTile");
@@ -90,6 +100,8 @@ package parser.sheet
 			
 			for (i = 0; i < sound.length; i++ )
 				sd.sound.push(this.sound[i].clone());
+			
+			sd.spriteById = this.spriteById;
 			
 			return sd;
 		}
