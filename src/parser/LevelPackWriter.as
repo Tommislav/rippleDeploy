@@ -6,6 +6,7 @@ package parser
 	import parser.sheet.SheetData;
 	import parser.writer.EmbedMp3Writer;
 	import parser.writer.EmbedTileSheetWriter;
+	import parser.writer.EmbedTitlecardWriter;
 	import parser.writer.ILevelWriter;
 	import parser.writer.ISheetWriter;
 	import parser.writer.LevelWriter;
@@ -35,7 +36,7 @@ package parser
 			if (model.levelXml != null)
 			{
 				// Write level data
-				_writer.writeLevelData(model.levelXml);
+				_writer.writeLevelData(model.sheetXml, model.levelXml);
 			}
 			
 			// Final code
@@ -92,10 +93,13 @@ package parser
 			return _template;
 		}
 		
-		protected function writeLevelData(levels:Vector.<RippleFile>):String
+		protected function writeLevelData(sheetData:RippleFile, levels:Vector.<RippleFile>):String
 		{
-			var writer:LevelWriter = new LevelWriter();
+			var embedTitlecardWriter:EmbedTitlecardWriter = new EmbedTitlecardWriter();
+			_template = embedTitlecardWriter.write( _template, SheetData(sheetData.parsedData), levels );
 			
+			
+			var levelWriter:LevelWriter = new LevelWriter();
 			
 			for each( var levelFile:RippleFile in levels )
 			{
@@ -103,7 +107,7 @@ package parser
 				
 				// don't use optimized data, levels aren't optimized
 				var levelData:LevelData = LevelData(levelFile.parsedData);
-				_template = writer.write( _template, levelData, levelFile.fileName );
+				_template = levelWriter.write( _template, levelData, levelFile.fileName );
 			}
 			return _template;
 		}

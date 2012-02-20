@@ -6,7 +6,11 @@ package
 	import flash.media.Sound;
 	
 	public class [ClassName] extends Sprite
-	{
+	{	
+		// ### Title cards ###
+[EmbedTitleCards]
+		
+		
 		// ### Tile sheets ###
 [EmbedTileSheets]
 		
