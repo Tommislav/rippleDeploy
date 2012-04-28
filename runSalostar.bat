@@ -1,0 +1,1 @@
+c:/sdk/flex/4.5.1/bin/adl.exe application.xml bin

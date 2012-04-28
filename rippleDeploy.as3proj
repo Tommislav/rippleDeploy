@@ -87,7 +87,7 @@
   <options>
     <option showHiddenPaths="False" />
     <option testMovie="Custom" />
-    <option testMovieCommand="runPixeltruss.bat" />
+    <option testMovieCommand="runSalostar.bat" />
   </options>
   <!-- Plugin storage -->
   <storage />

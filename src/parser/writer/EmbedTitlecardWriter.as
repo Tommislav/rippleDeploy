@@ -39,7 +39,7 @@ package parser.writer
 					
 					embedCode += "[Embed(source='"+ src +"')]\n";
 					embedCode += "private var " + className +":Class;\n";
-					embedCode += "private var " + bitmapName + ":BitmapData = new " + className + "().bitmapData;\n\n";
+					embedCode += "private var " + bitmapName + ":Bitmap = new " + className + "();\n\n";
 				}
 				embedCode += "\n";
 			}

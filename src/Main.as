@@ -15,12 +15,14 @@ package
 	import flash.filesystem.File;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
+	import levelselectcompiler.BatchCompiler;
 	import parser.CompileSwf;
 	import parser.log.GlobalLogDispatcher;
 	import parser.log.LogEvent;
 	import parser.Parser;
 	import parser.RippleFile;
 	import util.TabularText;
+	
 	
 	/**
 	 * ...
@@ -139,10 +141,19 @@ package
 			var files:Array = e.clipboard.getData(ClipboardFormats.FILE_LIST_FORMAT) as Array;
 			for each(var f:File in files)
 			{
+				
+				if (BatchCompiler.isBatchCompilable(f))
+				{
+					log("File is levelselect and batch compilable");
+					BatchCompiler.batchCompile(f);
+					return;
+				}
+				
 				log(_parser.newFile(f));
 			}
 			showFiles();
 		}
+		
 		
 		private function showFiles():void
 		{

@@ -105,6 +105,11 @@ package parser
 			LevelPackWriter.writeLevelPack(_model);
 		}
 		
+		public function silentSave(destFolder:String):void 
+		{
+			LevelPackWriter.writeSilentLevelPack(_model, destFolder);
+		}
+		
 		public function reset():void
 		{
 			_model.levelXml = new Vector.<RippleFile>();

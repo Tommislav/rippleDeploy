@@ -24,9 +24,20 @@ package parser
 		private static var _writer:LevelPackWriter;
 		public static function writeLevelPack(model:DataModel):void
 		{
-			//if (_writer == null)
+			var saveDataCmd:SaveData = new SaveData( "Save As", model.sheetXml.fileName + ".as", "rippleLevelDeploy" );
+			writeDataAndSaveToCommand(model, saveDataCmd);
+		}
+		
+		public static function writeSilentLevelPack(model:DataModel, destinationFolder:String):void
+		{
+			var saveDataCmd:SaveData = new SaveData( "Save As", model.sheetXml.fileName + ".as", "rippleLevelDeploy" );
+			saveDataCmd.saveWithoutBrowse(destinationFolder);
+			writeDataAndSaveToCommand(model, saveDataCmd);
+		}
+		
+		private static function writeDataAndSaveToCommand(model:DataModel, cmd:SaveData):void
+		{
 			_writer = new LevelPackWriter();
-			
 			_writer.prepare();
 			
 			// Write sheet data
@@ -43,12 +54,9 @@ package parser
 			var code:String = _writer.code;
 			
 			Clipboard.generalClipboard.setData(ClipboardFormats.TEXT_FORMAT, code);
-			
-			var saveDataCmd:SaveData = new SaveData( code, "Save As", model.sheetXml.fileName + ".as", "rippleLevelDeploy" );
-			saveDataCmd.execute();
+			cmd.setData(code);
+			cmd.execute();
 		}
-		
-		
 		
 		
 		
