@@ -5,9 +5,11 @@ package
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	import flash.media.Sound;
+	import flash.system.Security;
 	
 	public class [ClassName] extends Sprite
 	{	
+		
 		// ### Title cards ###
 [EmbedTitleCards]
 		
@@ -29,6 +31,9 @@ package
 		
 		private function init():void
 		{
+			flash.system.Security.allowDomain("*");
+			flash.system.Security.allowInsecureDomain("*");
+			
 			// Tilesheets
 			[TileSheets]
 			

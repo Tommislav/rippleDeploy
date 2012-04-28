@@ -39,6 +39,7 @@ package levelselectcompiler
 		private var _projectPath:String;
 		private var _listOfLevelFiles:Vector.<LevelFiles>;
 		private var _parser:Parser;
+		private var _delay:int;
 		
 		
 		public function BatchCompiler(projectPath:String) 
@@ -48,13 +49,18 @@ package levelselectcompiler
 		
 		public function batchCompile(levelSelect:XML):void
 		{
+			_delay = 0;
 			_listOfLevelFiles = parseLevelFiles(levelSelect);
+			var cnt:int = 0;
 			for each(var f:LevelFiles in _listOfLevelFiles)
 			{
 				populateWithActualFiles(f);
 				runThroughParser(f);
-				
+				CallLater.log( "---- end of " + (++cnt) + " / " + _listOfLevelFiles.length + "----", (_delay+10));
+				_delay += 5000;
 			}
+			
+			CallLater.log("------------All files complete or under way -----------------", _delay);
 		}
 		
 		private function parseLevelFiles(levelSelect:XML):Vector.<LevelFiles> 
@@ -83,21 +89,26 @@ package levelselectcompiler
 		
 		private function runThroughParser(f:LevelFiles):void 
 		{
-			if (_parser == null)
-				_parser = new Parser();
-			else
-				_parser.reset();
-			
+			_parser = new Parser();
 			
 			for each (var xmlFile:File in f.files)
-				_parser.newFile(xmlFile);
+			{
+				CallLater.parseNewFile(_parser, xmlFile, getDelay());
+			}
 			
-			_parser.silentSave(_projectPath + "\\gen\\");
+			CallLater.saveSilent( _parser, _projectPath + "\\gen\\", getDelay() );
 		}
 		
 		private function log(msg:String):void 
 		{
 			GlobalLogDispatcher.log(msg);
+		}
+		
+		private function getDelay():int
+		{
+			var delay:int = _delay;
+			_delay += 1000;
+			return delay;
 		}
 	}
 
