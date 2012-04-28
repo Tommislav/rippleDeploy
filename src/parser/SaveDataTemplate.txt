@@ -2,6 +2,7 @@ package
 {
 	// imports goes here
 	import flash.display.Sprite;
+	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	import flash.media.Sound;
 	
