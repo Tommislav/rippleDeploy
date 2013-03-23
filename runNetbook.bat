@@ -1,1 +1,1 @@
-$(FlexSDK)\bin\adl.exe application.xml bin
+c:/Tommy/sdk/flex/4.5.1.21328A/bin/adl.exe application.xml bin
