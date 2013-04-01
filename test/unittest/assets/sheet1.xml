@@ -78,15 +78,15 @@
 	</sprite>
 	
 	<!-- antoher simple sprite that isn't anywhere in the level -->
-	<sprite id="23" name="notInLevel" type="sprite" bb="0,0,32,32" p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
-		<sprite id="24" name="state" type="spriteState"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+	<sprite id="55" name="notInLevel" type="sprite" bb="0,0,32,32" p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+		<sprite id="56" name="state" type="spriteState"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
 			<frames p="40" />
 		</sprite>
 	</sprite>
 	
 	<!-- SPECIAL TEST FOR ANIMATED TILES -->
-	<sprite id="25" name="tiles" type="sprite"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
-		<sprite id="26" name="flashtower" type="animatedTile"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+	<sprite id="57" name="tiles" type="sprite"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+		<sprite id="58" name="flashtower" type="animatedTile"  p="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
 			<frames p="1,2,3" />
 		</sprite>
 	</sprite>

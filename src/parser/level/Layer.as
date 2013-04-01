@@ -9,9 +9,9 @@ package parser.level
 	public class Layer 
 	{
 		public var id:String;
-		public var x:int;
-		public var y:int;
-		public var d:int;
+		public var x:Number;
+		public var y:Number;
+		public var d:Number;
 		public var width:int;
 		public var obj:Boolean;
 		public var tiles:Vector.<Tile> = new Vector.<Tile>();
@@ -22,9 +22,9 @@ package parser.level
 		{
 			var lay:Layer = new Layer();
 			lay.id = xml.@id;
-			lay.x = parseInt(xml.@x);
-			lay.y = parseInt(xml.@y);
-			lay.d = parseInt(xml.@d);
+			lay.x = Number(xml.@x);
+			lay.y = Number(xml.@y);
+			lay.d = Number(xml.@d);
 			lay.width = 0;
 			lay.obj = (xml.@obj == "true") ? true : false;
 			
@@ -42,8 +42,8 @@ package parser.level
 				// determine width of layer, different for object or regular layers
 				if (!lay.obj)
 				{
-					if (parsedTile.x > lay.width)
-						lay.width = parsedTile.x;
+					if (parsedTile.x >= lay.width)
+						lay.width = parsedTile.x + 1;
 				}
 			}
 			return lay;

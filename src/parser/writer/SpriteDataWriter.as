@@ -65,13 +65,15 @@ package parser.writer
 					break;
 				}
 			}
-			if (isZero)
+			if (isZero)	
 				return "'z'";
 			
-			if (p[0].indexOf("=") > -1)
-				p[0] = "\"" + p[0] + "\"";
+			var copy:Array = p.slice();
+			if (copy[0].indexOf("=") > -1) {
+				copy[0] = "\"" + copy[0] + "\"";
+			}
 			
-			return "[" + p.join(",") + "]";
+			return "[" + copy.join(",") + "]";
 		}
 		private function parseStates(states:Vector.<SpriteState>):String
 		{

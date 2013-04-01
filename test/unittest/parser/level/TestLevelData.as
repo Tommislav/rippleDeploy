@@ -4,10 +4,14 @@ package unittest.parser.level
 	import org.hamcrest.assertThat;
 	import org.hamcrest.object.equalTo;
 	import org.hamcrest.object.hasPropertyWithValue;
+	import parser.DataModel;
 	import parser.level.Layer;
 	import parser.level.LevelData;
 	import parser.level.Tile;
+	import parser.RippleFile;
+	import parser.sheet.SheetData;
 	import parser.sheet.TileData;
+	import unittest.parser.sheet.FakeSheetData;
 	/**
 	 * ...
 	 * @author Tommy Salomonsson
@@ -33,7 +37,7 @@ package unittest.parser.level
 		[Test]
 		public function testObjectLayer():void
 		{
-			assertThat( _levelData.layers.length, equalTo(2) );
+			assertThat( _levelData.layers.length, equalTo(3) );
 			
 			var objLayer:Layer = _levelData.layers[0];
 			var oData:Object = {
@@ -78,10 +82,6 @@ package unittest.parser.level
 			}
 		}
 		
-		
-		
-		
-		
 		[Test]
 		public function testObjectTiles():void
 		{
@@ -111,6 +111,40 @@ package unittest.parser.level
 				extra: ""
 			};
 			validateObject(t, data);
+		}
+		
+		[Test]
+		public function testLayerDepthAsFloat():void
+		{
+			var fractLayer:Layer = _levelData.layers[2];
+			assertThat(fractLayer.id,	equalTo("fractDepth"));
+			
+			assertThat("scrollX", 		fractLayer.x, 	equalTo(1.5));
+			assertThat("scrollY", 		fractLayer.y, 	equalTo(2.5));
+			assertThat("depth", 		fractLayer.d, 	equalTo(3.5));
+		}
+		
+		[Test]
+		public function testAdjustedObjectLayerWidth():void {
+			
+			var model:DataModel = new DataModel();
+			model.sheetXml = createRippleFile(FakeSheetData.getData());
+			model.levelXml.push(createRippleFile(_levelData));
+			model.adjustObjectLayerWidth();
+			
+			var objLayer:Layer = _levelData.layers[0];
+			var fractLayer:Layer = _levelData.layers[2];
+			
+			assertThat(objLayer.width, equalTo(377));
+			assertThat(fractLayer.width, equalTo(15));
+		}
+		
+		private function createRippleFile(parsedData:Object):RippleFile
+		{
+			var rf:RippleFile = new RippleFile();
+			rf.fileName = "abc";
+			rf.parsedData = parsedData;
+			return rf;
 		}
 	}
 

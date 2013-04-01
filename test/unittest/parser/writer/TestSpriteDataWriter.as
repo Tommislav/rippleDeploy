@@ -1,6 +1,7 @@
 package unittest.parser.writer 
 {
 	import flash.geom.Rectangle;
+	import matchers.SpriteDataMatcher;
 	import org.hamcrest.assertThat;
 	import org.hamcrest.object.equalTo;
 	import org.hamcrest.text.containsString;
@@ -9,6 +10,7 @@ package unittest.parser.writer
 	import parser.sheet.SpriteState;
 	import parser.sheet.SpriteTypes;
 	import parser.writer.SpriteDataWriter;
+	import unittest.parser.sheet.FakeSheetData;
 	/**
 	 * The most complex writer to test
 	 * @author Tommy Salomonsson
@@ -104,5 +106,4 @@ package unittest.parser.writer
 			assertThat(writer.write("[Sprites]", data), containsString(expectedSubString) );
 		}
 	}
-
 }

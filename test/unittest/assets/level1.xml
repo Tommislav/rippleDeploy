@@ -11,4 +11,8 @@
 		<tile p="2,64,0" />
 		<tile p="26,128,64" /> <!-- animated tile -->
 	</layer>
+	
+	<layer id="fractDepth" x="1.5" y="2.5" d="3.5" obj="true" >
+		<tile p="50,10,20"/>
+	</layer>
 </level>

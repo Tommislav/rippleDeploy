@@ -48,7 +48,7 @@ package parser.level
 						for each(var tile:Tile in layer.tiles)
 						{
 							var right:Number = tile.x + getWidthFromSpriteId(tile.id);
-							if (right > objLayerWidth)
+							if (right >= objLayerWidth)
 								objLayerWidth = right + 1;
 						}
 						layer.width = objLayerWidth;
@@ -67,9 +67,7 @@ package parser.level
 			var frame:Number = sprite.spriteStates[0].frames[0];
 			var tiledata:TileData = _sheetData.tileDataById[frame];
 			var tileSheet:TileSheet = _sheetData.tileSheetById[tiledata.sheetId];
-			var width:int = tileSheet.width >> 5; // divided by 16
-			
-			//width += 2; // WHY?
+			var width:int = Math.ceil(tileSheet.width / 16);
 			
 			_cachedSpriteWidth[id] = width;
 			return width;
